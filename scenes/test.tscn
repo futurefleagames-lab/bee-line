@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dlm4w8xudtcr1"]
+
+[ext_resource type="PackedScene" uid="uid://cppuuw1fl33ui" path="res://scenes/bee.tscn" id="1_errlg"]
+
+[node name="test" type="Node2D" unique_id=702958792]
+
+[node name="Bee" parent="." unique_id=580368261 instance=ExtResource("1_errlg")]
