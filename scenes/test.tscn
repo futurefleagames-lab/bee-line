@@ -1,7 +1,32 @@
 [gd_scene format=3 uid="uid://dlm4w8xudtcr1"]
 
 [ext_resource type="PackedScene" uid="uid://cppuuw1fl33ui" path="res://scenes/bee.tscn" id="1_errlg"]
+[ext_resource type="Texture2D" uid="uid://b6fknkx5hshft" path="res://icon.svg" id="2_bl13t"]
 
 [node name="test" type="Node2D" unique_id=702958792]
 
 [node name="Bee" parent="." unique_id=580368261 instance=ExtResource("1_errlg")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1820287497]
+zoom = Vector2(0.5, 0.5)
+
+[node name="FakeObstacle" type="Sprite2D" parent="." unique_id=1948731475]
+position = Vector2(-762, -155.99997)
+rotation = 1.0559242
+scale = Vector2(2.8203127, 0.84375)
+texture = ExtResource("2_bl13t")
+
+[node name="FakeObstacle2" type="Sprite2D" parent="." unique_id=1973626720]
+position = Vector2(-246.00006, -208)
+scale = Vector2(2.8203127, 0.84375)
+texture = ExtResource("2_bl13t")
+
+[node name="FakeObstacle3" type="Sprite2D" parent="." unique_id=2010098753]
+position = Vector2(-271.99997, 92)
+scale = Vector2(1.3632814, 1.3437499)
+texture = ExtResource("2_bl13t")
+
+[node name="FakeObstacle4" type="Sprite2D" parent="." unique_id=137223882]
+position = Vector2(-550, -428)
+scale = Vector2(2.8203127, 0.84375)
+texture = ExtResource("2_bl13t")
