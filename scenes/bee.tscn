@@ -1,17 +1,35 @@
 [gd_scene format=3 uid="uid://cppuuw1fl33ui"]
 
-[ext_resource type="Texture2D" uid="uid://b6fknkx5hshft" path="res://icon.svg" id="1_1q2x0"]
 [ext_resource type="Script" uid="uid://cg4wq0calk4gc" path="res://scenes/bee.gd" id="1_vie5o"]
+[ext_resource type="Texture2D" uid="uid://bdhxfgajkub2" path="res://bee.png" id="3_ogg2i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf6nb"]
+atlas = ExtResource("3_ogg2i")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oynbf"]
+atlas = ExtResource("3_ogg2i")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkr4b"]
+atlas = ExtResource("3_ogg2i")
+region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pchpq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_1q2x0")
+"texture": SubResource("AtlasTexture_qf6nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oynbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkr4b")
 }],
 "loop": 1,
 "name": &"default",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h2x55"]
@@ -21,7 +39,13 @@ radius = 86.82
 script = ExtResource("1_vie5o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1326888453]
+position = Vector2(2.5000012, -4.500004)
+scale = Vector2(3.1458333, 3.4791667)
 sprite_frames = SubResource("SpriteFrames_pchpq")
+autoplay = "default"
+frame = 1
+frame_progress = 0.16666572
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=418103863]
+position = Vector2(3, -1)
 shape = SubResource("CircleShape2D_h2x55")
