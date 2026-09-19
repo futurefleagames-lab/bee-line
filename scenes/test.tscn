@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dlm4w8xudtcr1"]
 
 [ext_resource type="PackedScene" uid="uid://cppuuw1fl33ui" path="res://scenes/bee.tscn" id="1_errlg"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://b6fknkx5hshft" path="res://icon.svg" id="2_bl13t"]
 [ext_resource type="Script" uid="uid://dbrs3rkr5cqnl" path="res://scenes/medal_ui.gd" id="3_74lek"]
 [ext_resource type="Texture2D" uid="uid://b07ctxv5p7ovc" path="res://bronze-medal-with-red-ribbon-champion-and-winner-awards-sports-medal-png.png" id="3_iyx0m"]
@@ -89,6 +90,9 @@ _data = {
 &"RESET": SubResource("Animation_74lek"),
 &"medal_appear": SubResource("Animation_j5jx5")
 }
+=======
+[ext_resource type="PackedScene" uid="uid://7vpd2ca3xg1b" path="res://scenes/block.tscn" id="2_bl13t"]
+>>>>>>> main
 
 [node name="test" type="Node2D" unique_id=702958792]
 
@@ -98,12 +102,12 @@ position = Vector2(50, 1)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1820287497]
 zoom = Vector2(0.5, 0.5)
 
-[node name="FakeObstacle" type="Sprite2D" parent="." unique_id=1948731475]
-position = Vector2(-762, -155.99997)
-rotation = 1.0559242
-scale = Vector2(2.8203127, 0.84375)
-texture = ExtResource("2_bl13t")
+[node name="block" parent="." unique_id=1878223506 instance=ExtResource("2_bl13t")]
+position = Vector2(-570, 1)
+rotation = 1.0471976
+scale = Vector2(10, 1)
 
+<<<<<<< HEAD
 [node name="FakeObstacle2" type="Sprite2D" parent="." unique_id=1973626720]
 position = Vector2(-246.00006, -208)
 scale = Vector2(2.8203127, 0.84375)
@@ -132,3 +136,9 @@ texture = ExtResource("3_iyx0m")
 [node name="MedalAnimation" type="AnimationPlayer" parent="UI" unique_id=91924582]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_lpvoh")
+=======
+[node name="block2" parent="." unique_id=1733773062 instance=ExtResource("2_bl13t")]
+position = Vector2(524, 275)
+rotation = 2.6005406
+scale = Vector2(10, 1)
+>>>>>>> main
