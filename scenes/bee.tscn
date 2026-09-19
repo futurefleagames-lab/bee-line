@@ -32,10 +32,12 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h2x55"]
-radius = 86.82
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iyx0m"]
+radius = 34.0
+height = 114.0
 
 [node name="Bee" type="CharacterBody2D" unique_id=580368261]
+texture_filter = 1
 script = ExtResource("1_vie5o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1326888453]
@@ -43,9 +45,9 @@ position = Vector2(2.5000012, -4.500004)
 scale = Vector2(3.1458333, 3.4791667)
 sprite_frames = SubResource("SpriteFrames_pchpq")
 autoplay = "default"
-frame = 1
-frame_progress = 0.16666572
+frame = 2
+frame_progress = 0.52553034
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=418103863]
-position = Vector2(3, -1)
-shape = SubResource("CircleShape2D_h2x55")
+position = Vector2(2, 10)
+shape = SubResource("CapsuleShape2D_iyx0m")
