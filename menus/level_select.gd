@@ -5,8 +5,12 @@ extends Control
 
 
 func _on_level_0_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/test.tscn") # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/test.tscn") 
 
 
 func _on_level_1_pressed() -> void:
-	get_tree().change_scene_to_file("res://") # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/Level1.tscn") 
+
+
+func _on_quit_pressed() -> void:
+	get_tree().change_scene_to_file("res://menus/main_menu.tscn")
