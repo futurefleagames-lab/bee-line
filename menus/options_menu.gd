@@ -12,6 +12,7 @@ func rebind(action: StringName, button: Button):
 	button_change = button
 	button.text = "Press a key"
 	
+#this will have to be slightly modified if we desire arbitrary controller support
 func _input(event):
 	if assignment_change == &"":
 		return
