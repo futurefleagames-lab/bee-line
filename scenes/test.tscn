@@ -7,7 +7,7 @@
 [node name="test" type="Node2D" unique_id=702958792]
 
 [node name="Bee" parent="." unique_id=580368261 instance=ExtResource("1_errlg")]
-position = Vector2(50, 1)
+position = Vector2(361, -26)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1820287497]
 zoom = Vector2(0.5, 0.5)
