@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://djhv1q8sdi20s"]
+
+[ext_resource type="Script" uid="uid://51x1ch52n64c" path="res://scripts/obstacles/end_goal.gd" id="1_fltlj"]
+[ext_resource type="Texture2D" uid="uid://b6fknkx5hshft" path="res://assets/icon.svg" id="2_8ogt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2dea"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pchpq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8ogt7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EndGoal" type="Area2D" unique_id=1306961053]
+script = ExtResource("1_fltlj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1501010648]
+scale = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_h2dea")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1679202007]
+scale = Vector2(3.0683594, 3.0859377)
+sprite_frames = SubResource("SpriteFrames_pchpq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

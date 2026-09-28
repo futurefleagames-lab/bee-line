@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cppuuw1fl33ui"]
 
-[ext_resource type="Script" uid="uid://cg4wq0calk4gc" path="res://scenes/bee.gd" id="1_vie5o"]
-[ext_resource type="Texture2D" uid="uid://djussrbtieunf" path="res://bee.png" id="2_vie5o"]
+[ext_resource type="Script" uid="uid://cg4wq0calk4gc" path="res://scripts/bee.gd" id="1_vie5o"]
+[ext_resource type="Texture2D" uid="uid://djussrbtieunf" path="res://assets/bee.png" id="2_vie5o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ogg2i"]
 atlas = ExtResource("2_vie5o")

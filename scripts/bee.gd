@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 const FORCE = 175.0
 const AIR_FRICTION = 0.12
+const DASH_SPEED = 3500
 var state = "flying"
 var wall_timer = 0.3
 var dash_timer = 0.25
@@ -27,11 +28,11 @@ func _physics_process(delta: float) -> void:
 		if dash_timer <= 0:
 			state = "flying" 
 		elif dash_timer < 0.002:
-			velocity = Vector2(1,0).rotated(wish_vector.angle()) * 1000
+			velocity = Vector2(1,0).rotated(wish_vector.angle()) * 2 * DASH_SPEED / 7
 		elif dash_timer > 0.248:
-			velocity = Vector2(1,0).rotated(wish_vector.angle()) * 500
+			velocity = Vector2(1,0).rotated(wish_vector.angle()) * DASH_SPEED / 7
 		else:
-			velocity = Vector2(1,0).rotated(wish_vector.angle()) * 3500
+			velocity = Vector2(1,0).rotated(wish_vector.angle()) * DASH_SPEED
 		dash_timer = dash_timer - delta
 	elif state == "wall":
 		if Input.is_action_just_pressed("dash"):

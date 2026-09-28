@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c7j8qn67uik71"]
 
-[ext_resource type="Script" uid="uid://dbrs3rkr5cqnl" path="res://scenes/medal_ui.gd" id="1_geaxa"]
-[ext_resource type="Texture2D" uid="uid://ddb28a767tu2k" path="res://scenes/New Piskel(1).png" id="3_s72c0"]
+[ext_resource type="Script" uid="uid://dbrs3rkr5cqnl" path="res://scripts/HUD/medal_ui.gd" id="1_geaxa"]
+[ext_resource type="Texture2D" uid="uid://ddb28a767tu2k" path="res://assets/New Piskel(1).png" id="3_s72c0"]
 
 [sub_resource type="Animation" id="Animation_s72c0"]
 length = 0.001

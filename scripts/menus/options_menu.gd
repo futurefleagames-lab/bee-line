@@ -49,5 +49,5 @@ func _on_resetbutton_pressed():
 
 #return player to start scene
 func _on_quit_pressed() -> void:
-	get_tree().change_scene_to_file("res://menus/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
 	
