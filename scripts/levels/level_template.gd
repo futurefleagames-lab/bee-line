@@ -15,11 +15,13 @@ var elapsed_time: float = 0.0
 var level_finished = false
 
 @onready var medal_ui = $MedalUI
+@onready var timer_label: Label = $LevelHud/timerlabel
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not level_finished:
 		elapsed_time += delta
+	timer_label.text = "%.2f" % elapsed_time
 
 func finish_level():
 	if level_finished:

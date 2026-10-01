@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bcwxjlolq2y7f"]
+
+[sub_resource type="GDScript" id="GDScript_h1e0d"]
+script/source = "extends CanvasLayer
+
+#Godot is complaining at me so I am adding this
+#. Don't touch it
+"
+
+[node name="LevelHud" type="CanvasLayer" unique_id=812462990]
+script = SubResource("GDScript_h1e0d")
+
+[node name="timerlabel" type="Label" parent="." unique_id=71638678]
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 153.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 46
+text = "0.00"
