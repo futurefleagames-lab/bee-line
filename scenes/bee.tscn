@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cppuuw1fl33ui"]
 
 [ext_resource type="Script" uid="uid://cg4wq0calk4gc" path="res://scripts/bee.gd" id="1_vie5o"]
+[ext_resource type="Texture2D" uid="uid://dv6rxk1b45hyh" path="res://assets/bee-stagnant.png" id="2_ogg2i"]
 [ext_resource type="Texture2D" uid="uid://djussrbtieunf" path="res://assets/bee.png" id="2_vie5o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ogg2i"]
@@ -15,13 +16,21 @@ region = Rect2(16, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_ogg2i")
+}],
+"loop": 1,
+"name": &"cling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ogg2i")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qf6nb")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"flight",
 "speed": 5.0
 }]
 
@@ -35,9 +44,8 @@ script = ExtResource("1_vie5o")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1326888453]
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_2xnet")
-autoplay = "default"
-frame = 1
-frame_progress = 0.52553034
+animation = &"cling"
+autoplay = "flight"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=418103863]
 shape = SubResource("CircleShape2D_idvct")

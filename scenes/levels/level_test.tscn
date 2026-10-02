@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://djhv1q8sdi20s" path="res://scenes/obstacles/end_goal.tscn" id="3_uh3ll"]
 [ext_resource type="PackedScene" uid="uid://c7j8qn67uik71" path="res://scenes/HUD/medal_ui.tscn" id="4_4lw2e"]
 [ext_resource type="PackedScene" uid="uid://bcwxjlolq2y7f" path="res://scenes/HUD/LevelHUD.tscn" id="5_ycf23"]
+[ext_resource type="PackedScene" uid="uid://7vpd2ca3xg1b" path="res://scenes/obstacles/block.tscn" id="6_uh3ll"]
 
 [node name="LevelTemplate" type="Node2D" unique_id=482096296]
 script = ExtResource("1_4ptlp")
@@ -21,3 +22,7 @@ level = NodePath("..")
 
 [node name="LevelHud" parent="." unique_id=812462990 instance=ExtResource("5_ycf23")]
 script = null
+
+[node name="block" parent="." unique_id=1878223506 instance=ExtResource("6_uh3ll")]
+position = Vector2(-859, 80)
+scale = Vector2(7, 7)
