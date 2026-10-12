@@ -13,40 +13,75 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x5a0v")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1318920354]
-layout_mode = 0
-offset_left = 538.0
-offset_top = 278.0
-offset_right = 598.0
-offset_bottom = 327.0
+[node name="WorldSelect" type="CenterContainer" parent="." unique_id=1318920354]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1253387829]
+[node name="VBoxContainer" type="VBoxContainer" parent="WorldSelect" unique_id=1253387829]
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=164118264]
+[node name="Title" type="Label" parent="WorldSelect/VBoxContainer" unique_id=1356760989]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "World 0"
-horizontal_alignment = 1
+text = "Select World"
 
-[node name="Level0" type="Button" parent="CenterContainer/VBoxContainer" unique_id=136747436]
-unique_name_in_owner = true
+[node name="World1" type="Button" parent="WorldSelect/VBoxContainer" unique_id=1774647515]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "Level 0"
+text = "World 1"
 
-[node name="Level1" type="Button" parent="CenterContainer/VBoxContainer" unique_id=694266283]
+[node name="World2" type="Button" parent="WorldSelect/VBoxContainer" unique_id=2115168838]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+text = "World 2"
+
+[node name="World3" type="Button" parent="WorldSelect/VBoxContainer" unique_id=1697684377]
+layout_mode = 2
+text = "World 3"
+
+[node name="MainMenu" type="Button" parent="WorldSelect/VBoxContainer" unique_id=301797964]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="LevelSelect" type="CenterContainer" parent="." unique_id=722154878]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect" unique_id=911987264]
+layout_mode = 2
+
+[node name="WorldTitle" type="Label" parent="LevelSelect/VBoxContainer" unique_id=1161068587]
+layout_mode = 2
+text = "WORLD 1"
+
+[node name="Level1" type="Button" parent="LevelSelect/VBoxContainer" unique_id=1733822205]
+layout_mode = 2
 text = "Level 1"
 
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=453266050]
+[node name="Level2" type="Button" parent="LevelSelect/VBoxContainer" unique_id=169982376]
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
-text = "Quit"
+text = "Level 2"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Level0" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Level0" to="." method="_on_level_0_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Level3" type="Button" parent="LevelSelect/VBoxContainer" unique_id=2024873513]
+layout_mode = 2
+text = "Level 3"
+
+[node name="Back" type="Button" parent="LevelSelect/VBoxContainer" unique_id=1043099644]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="WorldSelect/VBoxContainer/World1" to="." method="_on_world_1_pressed"]
+[connection signal="pressed" from="WorldSelect/VBoxContainer/World2" to="." method="_on_world_2_pressed"]
+[connection signal="pressed" from="WorldSelect/VBoxContainer/World3" to="." method="_on_world_3_pressed"]
+[connection signal="pressed" from="WorldSelect/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="LevelSelect/VBoxContainer/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="LevelSelect/VBoxContainer/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="LevelSelect/VBoxContainer/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="LevelSelect/VBoxContainer/Back" to="." method="_on_back_pressed"]

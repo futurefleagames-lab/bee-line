@@ -12,5 +12,4 @@ func _on_body_entered(body):
 
 	if body.name == "Bee":
 		triggered = true
-		medal_ui.show_medal()
 		level.finish_level()

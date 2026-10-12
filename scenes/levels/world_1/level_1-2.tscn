@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c50urw6h7c0eo"]
+
+[ext_resource type="PackedScene" uid="uid://ccu3dmlikeqdu" path="res://scenes/levels/level_template.tscn" id="1_mt1qv"]
+
+[node name="LevelTemplate" unique_id=482096296 instance=ExtResource("1_mt1qv")]
+gold_time = 1.0
+silver_time = 2.0

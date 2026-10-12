@@ -7,6 +7,8 @@ extends Node2D
 
 # level assigns different medal reward depending level completion time from completion area trigger
 
+#these values can be reconfigured in the level scenes by accessing:
+#LevelTemplate node -> inspector
 @export var gold_time: float = 20.0
 @export var silver_time: float = 30.0
 @export var bronze_time: float = 45.0
@@ -14,8 +16,8 @@ extends Node2D
 var elapsed_time: float = 0.0
 var level_finished = false
 
-@onready var medal_ui = $MedalUI
 @onready var timer_label: Label = $LevelHud/timerlabel
+@onready var complete = $LevelComplete
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -28,18 +30,22 @@ func finish_level():
 		return
 
 	level_finished = true
+	var medal_earned: String = "none"
 
 	if elapsed_time <= gold_time:
-		print("Level complete - gold medal")
-		#medal_ui.show_medal("gold")
+		medal_earned = "Gold"
+		
 
 	elif elapsed_time <= silver_time:
-		print("Level complete - silver medal")
-		#medal_ui.show_medal("silver")
+		medal_earned = "Silver"
+		
 
 	elif elapsed_time <= bronze_time:
-		print("Level complete - bronze medal")
-		#medal_ui.show_medal("bronze")
+		medal_earned = "Bronze"
+		
+	complete.results(elapsed_time, medal_earned)
+	get_tree().paused = true
 
-	else:
-		print("Level complete - no medal")
+func _ready() -> void:
+	print("Running: ", scene_file_path)
+	

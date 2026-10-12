@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://c8rmdgytirwtb" path="res://scripts/levels/level_template.gd" id="1_ds0u5"]
 [ext_resource type="PackedScene" uid="uid://cppuuw1fl33ui" path="res://scenes/bee.tscn" id="2_4s5u3"]
 [ext_resource type="PackedScene" uid="uid://djhv1q8sdi20s" path="res://scenes/obstacles/end_goal.tscn" id="3_eokde"]
-[ext_resource type="PackedScene" uid="uid://c7j8qn67uik71" path="res://scenes/HUD/medal_ui.tscn" id="4_ulyey"]
 [ext_resource type="PackedScene" uid="uid://bcwxjlolq2y7f" path="res://scenes/HUD/LevelHUD.tscn" id="5_4s5u3"]
+[ext_resource type="PackedScene" uid="uid://dws01echp05jd" path="res://scenes/menus/level_complete.tscn" id="6_eokde"]
 
 [node name="LevelTemplate" type="Node2D" unique_id=482096296]
 script = ExtResource("1_ds0u5")
@@ -13,9 +13,9 @@ script = ExtResource("1_ds0u5")
 
 [node name="EndGoal" parent="." unique_id=1306961053 node_paths=PackedStringArray("medal_ui", "level") instance=ExtResource("3_eokde")]
 position = Vector2(-3, -493)
-medal_ui = NodePath("../MedalUI")
+medal_ui = NodePath("")
 level = NodePath("..")
 
-[node name="MedalUI" parent="." unique_id=2142517192 instance=ExtResource("4_ulyey")]
-
 [node name="LevelHud" parent="." unique_id=812462990 instance=ExtResource("5_4s5u3")]
+
+[node name="LevelComplete" parent="." unique_id=967028613 instance=ExtResource("6_eokde")]
