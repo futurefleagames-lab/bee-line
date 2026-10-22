@@ -1,10 +1,6 @@
 extends Node2D
 
 
-#this is a placeholder scene for whenever 
-#we are ready to create a level/course
-
-
 # level assigns different medal reward depending level completion time from completion area trigger
 
 #these values can be reconfigured in the level scenes by accessing:
@@ -14,16 +10,38 @@ extends Node2D
 @export var bronze_time: float = 45.0
 
 var elapsed_time: float = 0.0
-var level_finished = false
+var level_finished: bool = false
+
+var cd_active: bool = false
+var duration: int = 3
 
 @onready var timer_label: Label = $LevelHud/timerlabel
 @onready var complete = $LevelComplete
 
+@onready var overlay: Control = $LevelHud/Countdown
+@onready var cdlabel: Label = $LevelHud/Countdown/cdlabel
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not level_finished:
+	if not level_finished and not cd_active:
 		elapsed_time += delta
 	timer_label.text = "%.2f" % elapsed_time
+
+func countdown_start() -> void:
+	cd_active = true
+	overlay.show()
+	get_tree().paused = true
+	run_countdown()
+
+func run_countdown() -> void:
+	
+	for number in range(duration, 0, -1):
+		cdlabel.text = str(number)
+		await get_tree().create_timer(1.0, true).timeout
+	overlay.hide()
+	cd_active = false
+	get_tree().paused = false #resume gameplay
 
 func finish_level():
 	if level_finished:
@@ -48,4 +66,9 @@ func finish_level():
 
 func _ready() -> void:
 	print("Running: ", scene_file_path)
-	
+	if State.skip_countdown:
+		State.skip_countdown = false
+		overlay.hide()
+		get_tree().paused = false
+	else:
+		countdown_start()

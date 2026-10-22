@@ -19,7 +19,12 @@ func next() -> void:
 	var current = get_tree().current_scene
 	var where = LEVELS.find(current.scene_file_path)
 	get_tree().paused = false
-	get_tree().change_scene_to_file(LEVELS[where + 1])
+	
+	if where >= 0 and where + 1 < LEVELS.size():
+		get_tree().change_scene_to_file(LEVELS[where + 1])
+	else:
+		#we can possibly change this to a "victory" scene later, or something else
+		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
 
 
 #decide which level to load from level select menu
