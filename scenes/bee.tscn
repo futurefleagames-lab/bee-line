@@ -3,6 +3,12 @@
 [ext_resource type="Script" uid="uid://cg4wq0calk4gc" path="res://scripts/bee.gd" id="1_vie5o"]
 [ext_resource type="Texture2D" uid="uid://dv6rxk1b45hyh" path="res://assets/bee-stagnant.png" id="2_ogg2i"]
 [ext_resource type="Texture2D" uid="uid://djussrbtieunf" path="res://assets/bee.png" id="2_vie5o"]
+[ext_resource type="AudioStream" uid="uid://d2w2e41wx46f2" path="res://assets/death3.wav" id="4_yiyqc"]
+[ext_resource type="AudioStream" uid="uid://y0e5wacfj2mp" path="res://assets/dash-regular.wav" id="5_ykkpv"]
+[ext_resource type="AudioStream" uid="uid://nfrlofbbwgr7" path="res://assets/dash-perfect.wav" id="6_011rt"]
+[ext_resource type="AudioStream" uid="uid://dxuc5g7d48nbg" path="res://assets/dash-mid.wav" id="7_ovfpg"]
+[ext_resource type="AudioStream" uid="uid://cteri5wjyrnly" path="res://assets/dash-worst.wav" id="8_28ix7"]
+[ext_resource type="AudioStream" uid="uid://c238bpbjqvhgc" path="res://assets/cling.wav" id="9_vq5cx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ogg2i"]
 atlas = ExtResource("2_vie5o")
@@ -53,3 +59,21 @@ shape = SubResource("CircleShape2D_idvct")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1099290125]
 zoom = Vector2(0.4, 0.4)
 position_smoothing_enabled = true
+
+[node name="death" type="AudioStreamPlayer2D" parent="." unique_id=147913187]
+stream = ExtResource("4_yiyqc")
+
+[node name="dash" type="AudioStreamPlayer2D" parent="." unique_id=1907115958]
+stream = ExtResource("5_ykkpv")
+
+[node name="perfect" type="AudioStreamPlayer2D" parent="." unique_id=559999523]
+stream = ExtResource("6_011rt")
+
+[node name="mid" type="AudioStreamPlayer2D" parent="." unique_id=430508365]
+stream = ExtResource("7_ovfpg")
+
+[node name="late" type="AudioStreamPlayer2D" parent="." unique_id=928358994]
+stream = ExtResource("8_28ix7")
+
+[node name="cling" type="AudioStreamPlayer2D" parent="." unique_id=2095046520]
+stream = ExtResource("9_vq5cx")

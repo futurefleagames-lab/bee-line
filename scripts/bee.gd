@@ -18,7 +18,6 @@ var wall_normal = Vector2()
 var wish_vector = Vector2()
 
 func die():
-	#play death sound here
 	get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
@@ -37,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	if state == "flying":
 		if Input.is_action_just_pressed("dash"):
 			if wish_vector.x != 0 && wish_vector.y != 0:
-				#play normal dash sound 
+				$dash.play()
 				dash_timer = 0.25
 				state = "dashing"
 		else:
@@ -65,15 +64,15 @@ func _physics_process(delta: float) -> void:
 	elif state == "wall":
 		if Input.is_action_just_pressed("dash"):
 			if wall_timer > WALL_TIMER_MAX - 0.1:
-				#play perfect wall dash sound
+				$perfect.play()
 				velocity = Vector2((stored_velocity.length() + MAX_WALL_BOOST),0).rotated(wish_vector.angle()) 
 				print("perfect")
 			elif wall_timer > WALL_TIMER_MAX - 0.25:
-				#play medium wall dash sound
+				$mid.play()
 				velocity = Vector2(1,0).rotated(wish_vector.angle()) * (stored_velocity.length() + MAX_WALL_BOOST * 0.5)
 				print("medium")
 			else:
-				#play late wall dash sound
+				$late.play()
 				velocity = Vector2(1,0).rotated(wish_vector.angle()) * (stored_velocity.length() + MAX_WALL_BOOST * 0.25)
 				print("late")
 			state = "flying"
@@ -100,7 +99,7 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		wall_normal = collision.get_normal()
 		if  state != "wall":
-			#play wall cling sound here
+			$cling.play()
 			$AnimatedSprite2D.play("cling")
 			$AnimatedSprite2D.rotation = (wall_normal.angle() + PI/2)
 			$AnimatedSprite2D.offset = Vector2(0,2)
