@@ -12,24 +12,28 @@ extends Node2D
 var elapsed_time: float = 0.0
 var level_finished: bool = false
 
-var cd_active: bool = false
+var timer_paused: bool = false
 var duration: int = 3
 
 @onready var timer_label: Label = $LevelHud/timerlabel
 @onready var complete = $LevelComplete
 
+@onready var fade: Control = $LevelHud/Fade
+@onready var fade_animation: AnimationPlayer = $LevelHud/Fade/AnimationPlayer
 @onready var overlay: Control = $LevelHud/Countdown
 @onready var cdlabel: Label = $LevelHud/Countdown/cdlabel
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if not level_finished and not cd_active:
+	if not level_finished and not timer_paused:
 		elapsed_time += delta
 	timer_label.text = "%.2f" % elapsed_time
 
+
+
 func countdown_start() -> void:
-	cd_active = true
+	timer_paused = true
 	overlay.show()
 	get_tree().paused = true
 	run_countdown()
@@ -38,9 +42,9 @@ func run_countdown() -> void:
 	
 	for number in range(duration, 0, -1):
 		cdlabel.text = str(number)
-		await get_tree().create_timer(1.0, true).timeout
+		await get_tree().create_timer(0.5, true).timeout
 	overlay.hide()
-	cd_active = false
+	timer_paused = false
 	get_tree().paused = false #resume gameplay
 
 func finish_level():
@@ -66,9 +70,18 @@ func finish_level():
 
 func _ready() -> void:
 	print("Running: ", scene_file_path)
+	timer_paused = true
+	get_tree().paused = true
+	fade.show()
+	fade_animation.play("fade_in")
+	await fade_animation.animation_finished
+	fade.hide()
 	if State.skip_countdown:
 		State.skip_countdown = false
 		overlay.hide()
+		timer_paused = false
 		get_tree().paused = false
 	else:
 		countdown_start()
+	#timer_paused = false
+	#get_tree().paused = false

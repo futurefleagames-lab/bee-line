@@ -18,8 +18,6 @@ sources/0 = SubResource("TileSetScenesCollectionSource_j81xe")
 [node name="LevelTemplate" type="Node2D" unique_id=482096296]
 script = ExtResource("1_ds0u5")
 
-[node name="Bee" parent="." unique_id=580368261 instance=ExtResource("2_4s5u3")]
-
 [node name="EndGoal" parent="." unique_id=1306961053 node_paths=PackedStringArray("level") instance=ExtResource("3_eokde")]
 position = Vector2(-3, -493)
 level = NodePath("..")
@@ -35,3 +33,5 @@ scale = Vector2(10, 10)
 tile_set = SubResource("TileSet_pchpq")
 rendering_quadrant_size = 8
 format = 2
+
+[node name="Bee" parent="." unique_id=580368261 instance=ExtResource("2_4s5u3")]
