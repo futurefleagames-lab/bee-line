@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ccu3dmlikeqdu"]
+
+[ext_resource type="Script" uid="uid://c8rmdgytirwtb" path="res://scripts/levels/level_template.gd" id="1_ds0u5"]
+[ext_resource type="PackedScene" uid="uid://cppuuw1fl33ui" path="res://scenes/bee.tscn" id="2_4s5u3"]
+[ext_resource type="PackedScene" uid="uid://djhv1q8sdi20s" path="res://scenes/obstacles/end_goal.tscn" id="3_eokde"]
+[ext_resource type="PackedScene" uid="uid://bcwxjlolq2y7f" path="res://scenes/HUD/LevelHUD.tscn" id="5_4s5u3"]
+[ext_resource type="PackedScene" uid="uid://dws01echp05jd" path="res://scenes/menus/level_complete.tscn" id="6_eokde"]
+[ext_resource type="PackedScene" uid="uid://djft2eu5v5bvy" path="res://scenes/obstacles/tile_map.tscn" id="6_ulyey"]
+[ext_resource type="PackedScene" uid="uid://bu02v7cesdhk1" path="res://scenes/obstacles/spike.tscn" id="7_ulyey"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_j81xe"]
+scenes/1/scene = ExtResource("7_ulyey")
+
+[sub_resource type="TileSet" id="TileSet_pchpq"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetScenesCollectionSource_j81xe")
+
+[node name="LevelTemplate" type="Node2D" unique_id=482096296]
+script = ExtResource("1_ds0u5")
+
+[node name="EndGoal" parent="." unique_id=1306961053 node_paths=PackedStringArray("level") instance=ExtResource("3_eokde")]
+position = Vector2(-3, -493)
+level = NodePath("..")
+
+[node name="LevelHud" parent="." unique_id=812462990 instance=ExtResource("5_4s5u3")]
+
+[node name="LevelComplete" parent="." unique_id=967028613 instance=ExtResource("6_eokde")]
+
+[node name="TileMap" parent="." unique_id=1255836027 instance=ExtResource("6_ulyey")]
+
+[node name="SpikeMap" type="TileMap" parent="." unique_id=411159147]
+scale = Vector2(10, 10)
+tile_set = SubResource("TileSet_pchpq")
+rendering_quadrant_size = 8
+format = 2
+
+[node name="Bee" parent="." unique_id=580368261 instance=ExtResource("2_4s5u3")]

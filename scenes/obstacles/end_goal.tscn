@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://djhv1q8sdi20s"]
+
+[ext_resource type="Script" uid="uid://51x1ch52n64c" path="res://scripts/obstacles/end_goal.gd" id="1_fltlj"]
+[ext_resource type="Texture2D" uid="uid://00g43h28xr4j" path="res://assets/goal-flower.png" id="2_fltlj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ulyey"]
+radius = 7.470274
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pchpq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fltlj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EndGoal" type="Area2D" unique_id=1306961053]
+script = ExtResource("1_fltlj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1501010648]
+scale = Vector2(20, 20)
+shape = SubResource("CircleShape2D_ulyey")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1679202007]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_pchpq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
