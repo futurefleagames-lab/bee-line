@@ -6,6 +6,7 @@ const LEVELS = [
 	"res://scenes/levels/world_1/level_1-1.tscn",
 	"res://scenes/levels/world_1/level_1-2.tscn",
 	"res://scenes/levels/world_1/level_1-3.tscn",
+	"res://scenes/levels/world_1/level_1-4.tscn",
 	"res://scenes/levels/world_2/level_2-1.tscn",
 	"res://scenes/levels/world_2/level_2-2.tscn",
 	"res://scenes/levels/world_2/level_2-3.tscn",
