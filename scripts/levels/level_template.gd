@@ -30,6 +30,11 @@ func _process(delta: float) -> void:
 		elapsed_time += delta
 	timer_label.text = "%.2f" % elapsed_time
 
+#for time penalty boxes
+func add_penalty(amount: float) -> void:
+	if level_finished or timer_paused:
+		return
+	elapsed_time += amount
 
 
 func countdown_start() -> void:
