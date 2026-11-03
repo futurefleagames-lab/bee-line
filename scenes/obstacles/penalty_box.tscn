@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://df4iqtq2eungl"]
+
+[ext_resource type="Script" uid="uid://dxy81urprk6he" path="res://scripts/obstacles/penalty_box.gd" id="1_76a20"]
+[ext_resource type="Texture2D" uid="uid://xlubl6s0o7vf" path="res://assets/non-active.png" id="2_rcksf"]
+[ext_resource type="Texture2D" uid="uid://dhi5hv8q3feci" path="res://assets/active.png" id="3_y6uot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rcksf"]
+size = Vector2(16.875, 16)
+
+[node name="PenaltyBox" type="Area2D" unique_id=614670708]
+script = ExtResource("1_76a20")
+inactive = ExtResource("2_rcksf")
+active = ExtResource("3_y6uot")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1975482886]
+texture = ExtResource("2_rcksf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=986996115]
+shape = SubResource("RectangleShape2D_rcksf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
