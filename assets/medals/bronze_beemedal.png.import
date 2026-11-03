@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b07ctxv5p7ovc"
-path="res://.godot/imported/bronze-medal-with-red-ribbon-champion-and-winner-awards-sports-medal-png.png-f7d771d1226da22538a840d201d9c010.ctex"
+uid="uid://du3k5cxavxmx0"
+path="res://.godot/imported/bronze_beemedal.png-62f67a01121a9a2fc741faa572a3573d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bronze-medal-with-red-ribbon-champion-and-winner-awards-sports-medal-png.png"
-dest_files=["res://.godot/imported/bronze-medal-with-red-ribbon-champion-and-winner-awards-sports-medal-png.png-f7d771d1226da22538a840d201d9c010.ctex"]
+source_file="res://assets/medals/bronze_beemedal.png"
+dest_files=["res://.godot/imported/bronze_beemedal.png-62f67a01121a9a2fc741faa572a3573d.ctex"]
 
 [params]
 

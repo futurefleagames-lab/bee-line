@@ -53,8 +53,14 @@ func results(completion: float, medal: String) -> void:
 
 	medal_ui.call("hide_medal")
 	
-	if earned == "bronze":
-		medal_ui.call("show_medal_at", reward_spacer.get_global_rect().get_center())
+	if earned in ["bronze", "silver", "gold"]:
+		medal_ui.call(
+			"show_medal_at",
+			reward_spacer.get_global_rect().get_center(),
+			earned
+	)
+	
+
 		
 
 func _on_restart_pressed() -> void:
