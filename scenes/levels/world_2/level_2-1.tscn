@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://ccu3dmlikeqdu" path="res://scenes/levels/level_template.tscn" id="1_le4oq"]
 
 [node name="LevelTemplate" unique_id=482096296 instance=ExtResource("1_le4oq")]
+
+[node name="EndGoal" parent="." index="0" unique_id=1306961053]
+position = Vector2(2155, -490)

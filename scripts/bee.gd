@@ -18,6 +18,7 @@ var dash_timer = 0.25
 var stored_velocity = Vector2()
 var wall_normal = Vector2()
 var wish_vector = Vector2()
+var stun_timer = 0.0
 
 func _ready() -> void:
 	$AnimatedSprite2D.set_flip_h(1)
@@ -110,17 +111,21 @@ func _physics_process(delta: float) -> void:
 				$AnimatedSprite2D.offset = Vector2()
 			else:
 				wall_timer = wall_timer - delta
-		
+		elif state == "stunned":
+			if stun_timer <= 0:
+				state = "flying"
+			else:
+				stun_timer -= delta
 		if state != "wall":
 			if wish_vector.x > 0:
 				$AnimatedSprite2D.set_flip_h(1)
 			elif wish_vector.x < 0:
 				$AnimatedSprite2D.set_flip_h(0)
-		
 		var collision = move_and_collide(velocity * delta)
 		
 		if collision:
 			wall_normal = collision.get_normal()
+			stun_timer = 0.0
 			if  state != "wall":
 				$cling.play()
 				$AnimatedSprite2D.play("cling")
