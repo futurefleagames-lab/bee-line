@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcwxjlolq2y7f" path="res://scenes/HUD/LevelHUD.tscn" id="5_ycf23"]
 [ext_resource type="PackedScene" uid="uid://7vpd2ca3xg1b" path="res://scenes/obstacles/block.tscn" id="6_uh3ll"]
 [ext_resource type="PackedScene" uid="uid://dws01echp05jd" path="res://scenes/menus/level_complete.tscn" id="7_4lw2e"]
+[ext_resource type="PackedScene" uid="uid://cdymfssea7445" path="res://scenes/obstacles/mushroom.tscn" id="7_bqmi1"]
 
 [node name="LevelTemplate" type="Node2D" unique_id=482096296]
 script = ExtResource("1_4ptlp")
@@ -13,9 +14,8 @@ gold_time = 10.0
 
 [node name="Bee" parent="." unique_id=580368261 instance=ExtResource("2_ycf23")]
 
-[node name="EndGoal" parent="." unique_id=1306961053 node_paths=PackedStringArray("medal_ui", "level") instance=ExtResource("3_uh3ll")]
+[node name="EndGoal" parent="." unique_id=1306961053 node_paths=PackedStringArray("level") instance=ExtResource("3_uh3ll")]
 position = Vector2(-3, -493)
-medal_ui = NodePath("")
 level = NodePath("..")
 
 [node name="LevelHud" parent="." unique_id=812462990 instance=ExtResource("5_ycf23")]
@@ -26,3 +26,7 @@ position = Vector2(-859, 80)
 scale = Vector2(7, 7)
 
 [node name="LevelComplete" parent="." unique_id=967028613 instance=ExtResource("7_4lw2e")]
+
+[node name="Mushroom" parent="." unique_id=1191107152 instance=ExtResource("7_bqmi1")]
+position = Vector2(232.99997, 488.00006)
+rotation = 0.4660029
