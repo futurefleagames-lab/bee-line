@@ -8,6 +8,7 @@
 size = Vector2(16.875, 16)
 
 [node name="PenaltyBox" type="Area2D" unique_id=614670708]
+scale = Vector2(10, 10)
 script = ExtResource("1_76a20")
 inactive = ExtResource("2_rcksf")
 active = ExtResource("3_y6uot")
