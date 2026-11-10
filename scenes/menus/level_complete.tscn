@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://dws01echp05jd"]
 
 [ext_resource type="Script" uid="uid://dg1aor8l6kofj" path="res://scripts/menus/level_complete.gd" id="1_ynwdh"]
+[ext_resource type="PackedScene" uid="uid://c7j8qn67uik71" path="res://scenes/HUD/medal_ui.tscn" id="2_uybh7"]
 
 [node name="LevelComplete" type="CanvasLayer" unique_id=967028613]
 process_mode = 3
 script = ExtResource("1_ynwdh")
+medal_ui_scene = ExtResource("2_uybh7")
 
 [node name="Control" type="Control" parent="." unique_id=253924636]
 visible = false
