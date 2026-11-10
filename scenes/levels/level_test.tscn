@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://7vpd2ca3xg1b" path="res://scenes/obstacles/block.tscn" id="6_uh3ll"]
 [ext_resource type="PackedScene" uid="uid://dws01echp05jd" path="res://scenes/menus/level_complete.tscn" id="7_4lw2e"]
 [ext_resource type="PackedScene" uid="uid://cdymfssea7445" path="res://scenes/obstacles/mushroom.tscn" id="7_bqmi1"]
+[ext_resource type="PackedScene" uid="uid://c7xdiwkig2m56" path="res://scenes/obstacles/spider_web.tscn" id="8_bqmi1"]
 
 [node name="LevelTemplate" type="Node2D" unique_id=482096296]
 script = ExtResource("1_4ptlp")
@@ -30,3 +31,6 @@ scale = Vector2(7, 7)
 [node name="Mushroom" parent="." unique_id=1191107152 instance=ExtResource("7_bqmi1")]
 position = Vector2(232.99997, 488.00006)
 rotation = 0.4660029
+
+[node name="SpiderWeb" parent="." unique_id=1463187221 instance=ExtResource("8_bqmi1")]
+position = Vector2(817, 452)

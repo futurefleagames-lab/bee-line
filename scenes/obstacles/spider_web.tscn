@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c7xdiwkig2m56"]
+
+[ext_resource type="Script" uid="uid://ffjmqtnc6c1k" path="res://scripts/obstacles/spider_web.gd" id="1_rr8ms"]
+[ext_resource type="Texture2D" uid="uid://bbif76ods8fg" path="res://assets/web.png" id="2_fbefo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2dea"]
+size = Vector2(120, 120)
+
+[node name="SpiderWeb" type="Area2D" unique_id=1463187221]
+script = ExtResource("1_rr8ms")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=300929220]
+shape = SubResource("RectangleShape2D_h2dea")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1265944158]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_fbefo")
