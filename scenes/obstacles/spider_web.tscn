@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bbif76ods8fg" path="res://assets/web.png" id="2_fbefo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2dea"]
-size = Vector2(120, 120)
+size = Vector2(10, 10)
 
 [node name="SpiderWeb" type="Area2D" unique_id=1463187221]
 script = ExtResource("1_rr8ms")
@@ -13,5 +13,5 @@ script = ExtResource("1_rr8ms")
 shape = SubResource("RectangleShape2D_h2dea")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1265944158]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.01, 0.01)
 texture = ExtResource("2_fbefo")

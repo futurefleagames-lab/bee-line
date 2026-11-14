@@ -15,6 +15,9 @@ sources/0 = SubResource("TileSetAtlasSource_lretk")
 
 [node name="LevelTemplate" unique_id=482096296 instance=ExtResource("1_38hov")]
 
+[node name="TileMap" parent="." index="3" unique_id=1255836027]
+layer_0/tile_data = PackedInt32Array(-65537, 65536, 1, -131072, 65536, 1, -131071, 65536, 1, -131070, 65536, 1, -65534, 65536, 1, -65533, 65536, 1, -65532, 65536, 1, -131068, 65536, 1, -196604, 65536, 1, -196603, 65536, 1)
+
 [node name="bg-2" type="TileMapLayer" parent="." index="6" unique_id=662825059]
 z_index = -10
 rotation = -0.0024468636

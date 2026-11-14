@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://bcwxjlolq2y7f" path="res://scenes/HUD/LevelHUD.tscn" id="5_4s5u3"]
 [ext_resource type="PackedScene" uid="uid://dws01echp05jd" path="res://scenes/menus/level_complete.tscn" id="6_eokde"]
 [ext_resource type="PackedScene" uid="uid://djft2eu5v5bvy" path="res://scenes/obstacles/tile_map.tscn" id="6_ulyey"]
+[ext_resource type="PackedScene" uid="uid://c7xdiwkig2m56" path="res://scenes/obstacles/spider_web.tscn" id="7_j81xe"]
 [ext_resource type="PackedScene" uid="uid://bu02v7cesdhk1" path="res://scenes/obstacles/spike.tscn" id="7_ulyey"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_j81xe"]
 scenes/1/scene = ExtResource("7_ulyey")
+scenes/2/scene = ExtResource("7_j81xe")
 
 [sub_resource type="TileSet" id="TileSet_pchpq"]
 tile_size = Vector2i(8, 8)
