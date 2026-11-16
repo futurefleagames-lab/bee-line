@@ -12,6 +12,9 @@ extends Node2D
 var elapsed_time: float = 0.0
 var level_finished: bool = false
 
+#string with last 3 characters before .tscn
+@onready var level_id = (scene_file_path.right(8)).left(3)
+
 var timer_paused: bool = false
 var duration: int = 3
 
@@ -61,20 +64,30 @@ func finish_level():
 
 	if elapsed_time <= gold_time:
 		medal_earned = "Gold"
-		
 
 	elif elapsed_time <= silver_time:
 		medal_earned = "Silver"
-		
 
 	elif elapsed_time <= bronze_time:
 		medal_earned = "Bronze"
-		
+	
+	if (level_id.left(1)).is_valid_int():
+		if medal_earned == "Gold":
+			SaveSystem.temporary_keys.set(level_id + " medal", medal_earned)
+		elif medal_earned == "Silver" and SaveSystem.temporary_keys.get(level_id + " medal") != "Gold":
+			SaveSystem.temporary_keys.set(level_id + " medal", medal_earned)
+		elif medal_earned == "Bronze" and SaveSystem.temporary_keys.get(level_id + " medal") == "none":
+			SaveSystem.temporary_keys.set(level_id + " medal", medal_earned)
+		if SaveSystem.temporary_keys.get(level_id + " best time") > elapsed_time or SaveSystem.temporary_keys.get(level_id + " best time") == -1.0:
+			SaveSystem.temporary_keys.set(level_id + " best time", elapsed_time)
+		SaveSystem.save_file()
 	complete.results(elapsed_time, medal_earned)
 	get_tree().paused = true
 
 func _ready() -> void:
 	print("Running: ", scene_file_path)
+	print(SaveSystem.temporary_keys.get(level_id + " medal"))
+	print(SaveSystem.temporary_keys.get(level_id + " best time"))
 	timer_paused = true
 	get_tree().paused = true
 	fade.show()

@@ -19,6 +19,7 @@ config/icon="res://assets/icon.svg"
 
 LevelManager="*uid://rjk5fl508bxg"
 State="*uid://c2cd5j7tmy26l"
+SaveSystem="*uid://bupv4weppfncv"
 
 [display]
 
