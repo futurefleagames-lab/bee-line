@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bujyq1hy87nd6"]
+
+[ext_resource type="Script" uid="uid://djgds40vfwwuh" path="res://scenes/title_bees.gd" id="1_yltvn"]
+[ext_resource type="Texture2D" uid="uid://djussrbtieunf" path="res://assets/bee.png" id="2_xo2pg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7ys4"]
+atlas = ExtResource("2_xo2pg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24tbu"]
+atlas = ExtResource("2_xo2pg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d0a87"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7ys4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24tbu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TitleBee" type="Node2D" unique_id=1288152938]
+script = ExtResource("1_yltvn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=885587131]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_d0a87")
+autoplay = "default"
+frame = 1
+frame_progress = 0.93983406

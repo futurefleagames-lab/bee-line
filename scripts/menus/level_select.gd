@@ -1,23 +1,28 @@
 extends Control
 
-@onready var world_select = $WorldSelect
-@onready var level_select = $LevelSelect
-@onready var world_title: Label = $LevelSelect/VBoxContainer/WorldTitle
+
+#with recent modifications (11/19/26), some nodes in the level_select scene
+#may be unnecessary. Feel free to remove them if you identify such nodes
+#For now, I am simply leaving them just in case - Nate
+
+@onready var world_select = $VBoxContainer
+@onready var level_select = $VBoxContainer2
+
 
 var selected: int = 1
 
 func _ready() -> void:
 	world_select.show()
 	level_select.hide()
-	$WorldSelect/VBoxContainer/World1.grab_focus()
+	$VBoxContainer/World1.grab_focus()
 
 func select_world(world: int) -> void:
 	selected = world
-	world_title.text = "World " + str(world)
+	
 	world_select.hide()
 	level_select.show()
 	
-	$LevelSelect/VBoxContainer/Level1.grab_focus()
+	$VBoxContainer2/Level1.grab_focus()
 	
 
 
@@ -54,7 +59,7 @@ func _on_level_5_pressed() -> void:
 func _on_back_pressed() -> void:
 	level_select.hide()
 	world_select.show()
-	$WorldSelect/VBoxContainer/World1.grab_focus()
+	$VBoxContainer/World1.grab_focus()
 
 
 func _on_main_menu_pressed() -> void:

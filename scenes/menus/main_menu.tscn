@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://xhosd0ol0481"]
 
 [ext_resource type="Script" uid="uid://deyi7tt7bqcay" path="res://scripts/menus/main_menu.gd" id="1_8gy84"]
+[ext_resource type="Texture2D" uid="uid://bphl28qxr0fpg" path="res://assets/play.png" id="2_imvie"]
+[ext_resource type="Texture2D" uid="uid://docuw5qcsyb0u" path="res://assets/bee-face.png" id="2_ovrgc"]
+[ext_resource type="Texture2D" uid="uid://dd0yk2lhl33ws" path="res://assets/honeycomb.png" id="3_2o76q"]
+[ext_resource type="Texture2D" uid="uid://bykkko3popvkr" path="res://assets/options.png" id="3_8r73w"]
+[ext_resource type="Texture2D" uid="uid://cx63rmggi6h7o" path="res://assets/play-hover.png" id="3_euy4r"]
+[ext_resource type="Texture2D" uid="uid://cgxuo7j23ueln" path="res://assets/quit.png" id="4_1hnlc"]
+[ext_resource type="Texture2D" uid="uid://beba54bmm7i4e" path="res://assets/beeline.png" id="4_6bivr"]
+[ext_resource type="Texture2D" uid="uid://dlvf1irjvbi18" path="res://assets/options-hover.png" id="5_bre17"]
+[ext_resource type="Texture2D" uid="uid://clro4vjl8mqf7" path="res://assets/quit-hover.png" id="7_88kup"]
+[ext_resource type="Script" uid="uid://dvr3qstlwrh5e" path="res://scenes/menus/bees.gd" id="11_88kup"]
+[ext_resource type="PackedScene" uid="uid://bujyq1hy87nd6" path="res://scenes/title-bees.tscn" id="12_bh4e2"]
+[ext_resource type="AudioStream" uid="uid://t8iwoy7bqnx7" path="res://assets/main_theme.wav" id="13_bh4e2"]
 
 [node name="MainMenu" type="Control" unique_id=161684757]
 layout_mode = 3
@@ -16,31 +28,83 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 44.0
+offset_right = 7.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1075168738]
-layout_mode = 2
-theme_override_constants/separation = 12
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1075168738]
+layout_mode = 0
+offset_left = 500.00003
+offset_top = 283.0
+offset_right = 579.0
+offset_bottom = 452.0
+scale = Vector2(3, 3)
+theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=310397800]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "BEELINE"
-
-[node name="playbutton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=902245401]
+[node name="play" type="TextureButton" parent="VBoxContainer" unique_id=633138836]
 unique_name_in_owner = true
 layout_mode = 2
-text = "PLAY"
+texture_normal = ExtResource("2_imvie")
+texture_hover = ExtResource("3_euy4r")
 
-[node name="optionsbutton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1024695645]
+[node name="optionsbutton" type="TextureButton" parent="VBoxContainer" unique_id=1894215608]
 layout_mode = 2
-text = "OPTIONS"
+texture_normal = ExtResource("3_8r73w")
+texture_hover = ExtResource("5_bre17")
 
-[node name="quitbutton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1257406831]
+[node name="quitbutton" type="TextureButton" parent="VBoxContainer" unique_id=672423133]
 layout_mode = 2
-text = "QUIT"
+texture_normal = ExtResource("4_1hnlc")
+texture_hover = ExtResource("7_88kup")
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/playbutton" to="." method="_on_playbutton_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/optionsbutton" to="." method="_on_optionsbutton_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/quitbutton" to="." method="_on_quitbutton_pressed"]
+[node name="HeadRect" type="TextureRect" parent="." unique_id=1766744500]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 17.0
+offset_right = 95.0
+offset_bottom = 217.0
+grow_horizontal = 2
+texture = ExtResource("2_ovrgc")
+stretch_mode = 4
+
+[node name="bg" type="TextureRect" parent="." unique_id=557470426]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_2o76q")
+
+[node name="title" type="TextureRect" parent="." unique_id=958503826]
+layout_mode = 0
+offset_left = 431.0
+offset_top = 150.0
+offset_right = 591.0
+offset_bottom = 190.0
+scale = Vector2(2, 2)
+texture = ExtResource("4_6bivr")
+
+[node name="bees" type="Node2D" parent="." unique_id=1660205845]
+script = ExtResource("11_88kup")
+bee_scene = ExtResource("12_bh4e2")
+
+[node name="spawn" type="Timer" parent="bees" unique_id=2081943471]
+wait_time = 1.5
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=492472315]
+stream = ExtResource("13_bh4e2")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/optionsbutton" to="." method="_on_optionsbutton_pressed"]
+[connection signal="pressed" from="VBoxContainer/quitbutton" to="." method="_on_quitbutton_pressed"]

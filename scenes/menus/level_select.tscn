@@ -1,6 +1,26 @@
 [gd_scene format=3 uid="uid://iqysml2ofvue"]
 
 [ext_resource type="Script" uid="uid://fiit6nefoum0" path="res://scripts/menus/level_select.gd" id="1_x5a0v"]
+[ext_resource type="Texture2D" uid="uid://c6eia6k6ws1fh" path="res://assets/worldone.png" id="2_1g16o"]
+[ext_resource type="Texture2D" uid="uid://cem4ys4vbemi5" path="res://assets/worldone-hover.png" id="3_25yo6"]
+[ext_resource type="Texture2D" uid="uid://b5i8uho6m4e3c" path="res://assets/worldtwo.png" id="4_3nlwe"]
+[ext_resource type="Texture2D" uid="uid://dh1g25utby1sm" path="res://assets/worldtwo-hover.png" id="5_if2tv"]
+[ext_resource type="Texture2D" uid="uid://dtsx7ldt68ucr" path="res://assets/worldthree.png" id="6_10jtx"]
+[ext_resource type="Texture2D" uid="uid://clbumuwj41fp0" path="res://assets/worldthree-hover.png" id="7_2uik4"]
+[ext_resource type="Texture2D" uid="uid://cf7rtsgdesq1d" path="res://assets/back.png" id="8_pi4ua"]
+[ext_resource type="Texture2D" uid="uid://b6ie8ow3f4q80" path="res://assets/back-hover.png" id="9_2kfc6"]
+[ext_resource type="Texture2D" uid="uid://ba10wehkebrsd" path="res://assets/level1.png" id="10_glcn7"]
+[ext_resource type="Texture2D" uid="uid://c2johu0y7u3yi" path="res://assets/level1-hover.png" id="11_0ds72"]
+[ext_resource type="Texture2D" uid="uid://bysy3vs6q0yhh" path="res://assets/level2.png" id="12_wgcbf"]
+[ext_resource type="Texture2D" uid="uid://crgfsk4ycd860" path="res://assets/level2-hover.png" id="13_q6lfc"]
+[ext_resource type="Texture2D" uid="uid://c72d55k07t86r" path="res://assets/level3.png" id="14_70l6n"]
+[ext_resource type="Texture2D" uid="uid://dmgpnyrb5pigw" path="res://assets/level3-hover.png" id="15_ilwhj"]
+[ext_resource type="Texture2D" uid="uid://ul8ku1u58jfu" path="res://assets/level4.png" id="16_ase7r"]
+[ext_resource type="Texture2D" uid="uid://dcxnk74eimwye" path="res://assets/level4-hover.png" id="17_vtltp"]
+[ext_resource type="Texture2D" uid="uid://c7uu1ubymggbf" path="res://assets/level5.png" id="18_8u4nx"]
+[ext_resource type="Texture2D" uid="uid://bmmlbiux1sqao" path="res://assets/level5-hover.png" id="19_pumrs"]
+[ext_resource type="Texture2D" uid="uid://dtxjau47kyelr" path="res://assets/honeycomb-darker.png" id="20_if2tv"]
+[ext_resource type="AudioStream" uid="uid://dj6rwvlphh6o0" path="res://assets/menu_theme.wav" id="21_10jtx"]
 
 [node name="LevelSelect" type="Control" unique_id=1847241350]
 layout_mode = 3
@@ -21,29 +41,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="WorldSelect" unique_id=1253387829]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1253387829]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -118.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
 theme_override_constants/separation = 18
 
-[node name="Title" type="Label" parent="WorldSelect/VBoxContainer" unique_id=1356760989]
+[node name="World1" type="TextureButton" parent="VBoxContainer" unique_id=1147117121]
 layout_mode = 2
-text = "Select World"
+texture_normal = ExtResource("2_1g16o")
+texture_hover = ExtResource("3_25yo6")
 
-[node name="World1" type="Button" parent="WorldSelect/VBoxContainer" unique_id=1774647515]
+[node name="World2" type="TextureButton" parent="VBoxContainer" unique_id=1480092538]
 layout_mode = 2
-text = "World 1"
+texture_normal = ExtResource("4_3nlwe")
+texture_hover = ExtResource("5_if2tv")
 
-[node name="World2" type="Button" parent="WorldSelect/VBoxContainer" unique_id=2115168838]
+[node name="World3" type="TextureButton" parent="VBoxContainer" unique_id=487168515]
 layout_mode = 2
-text = "World 2"
+texture_normal = ExtResource("6_10jtx")
+texture_hover = ExtResource("7_2uik4")
 
-[node name="World3" type="Button" parent="WorldSelect/VBoxContainer" unique_id=1697684377]
+[node name="MainMenu" type="TextureButton" parent="VBoxContainer" unique_id=2053285754]
 layout_mode = 2
-text = "World 3"
-
-[node name="MainMenu" type="Button" parent="WorldSelect/VBoxContainer" unique_id=301797964]
-layout_mode = 2
-text = "Main Menu"
+texture_normal = ExtResource("8_pi4ua")
+texture_hover = ExtResource("9_2kfc6")
 
 [node name="LevelSelect" type="CenterContainer" parent="." unique_id=722154878]
 visible = false
@@ -54,44 +85,75 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LevelSelect" unique_id=911987264]
-layout_mode = 2
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=911987264]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.0
+offset_top = -111.5
+offset_right = 15.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
 
-[node name="WorldTitle" type="Label" parent="LevelSelect/VBoxContainer" unique_id=1161068587]
+[node name="Level1" type="TextureButton" parent="VBoxContainer2" unique_id=1829198180]
 layout_mode = 2
-text = "WORLD 1"
+texture_normal = ExtResource("10_glcn7")
+texture_hover = ExtResource("11_0ds72")
 
-[node name="Level1" type="Button" parent="LevelSelect/VBoxContainer" unique_id=1733822205]
+[node name="Level2" type="TextureButton" parent="VBoxContainer2" unique_id=1711709258]
 layout_mode = 2
-text = "Level 1"
+texture_normal = ExtResource("12_wgcbf")
+texture_hover = ExtResource("13_q6lfc")
 
-[node name="Level2" type="Button" parent="LevelSelect/VBoxContainer" unique_id=169982376]
+[node name="Level3" type="TextureButton" parent="VBoxContainer2" unique_id=1839016439]
 layout_mode = 2
-text = "Level 2"
+texture_normal = ExtResource("14_70l6n")
+texture_hover = ExtResource("15_ilwhj")
 
-[node name="Level3" type="Button" parent="LevelSelect/VBoxContainer" unique_id=2024873513]
+[node name="Level4" type="TextureButton" parent="VBoxContainer2" unique_id=567122333]
 layout_mode = 2
-text = "Level 3"
+texture_normal = ExtResource("16_ase7r")
+texture_hover = ExtResource("17_vtltp")
 
-[node name="Level4" type="Button" parent="LevelSelect/VBoxContainer" unique_id=1516307527]
+[node name="Level5" type="TextureButton" parent="VBoxContainer2" unique_id=1974409331]
 layout_mode = 2
-text = "Level 4"
+texture_normal = ExtResource("18_8u4nx")
+texture_hover = ExtResource("19_pumrs")
 
-[node name="Level5" type="Button" parent="LevelSelect/VBoxContainer" unique_id=1877463983]
+[node name="Back" type="TextureButton" parent="VBoxContainer2" unique_id=1185842342]
 layout_mode = 2
-text = "Level 5"
+texture_normal = ExtResource("8_pi4ua")
+texture_hover = ExtResource("9_2kfc6")
 
-[node name="Back" type="Button" parent="LevelSelect/VBoxContainer" unique_id=1043099644]
-layout_mode = 2
-text = "Back"
+[node name="bg" type="TextureRect" parent="." unique_id=148452146]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("20_if2tv")
 
-[connection signal="pressed" from="WorldSelect/VBoxContainer/World1" to="." method="_on_world_1_pressed"]
-[connection signal="pressed" from="WorldSelect/VBoxContainer/World2" to="." method="_on_world_2_pressed"]
-[connection signal="pressed" from="WorldSelect/VBoxContainer/World3" to="." method="_on_world_3_pressed"]
-[connection signal="pressed" from="WorldSelect/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="LevelSelect/VBoxContainer/Level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="LevelSelect/VBoxContainer/Level2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="LevelSelect/VBoxContainer/Level3" to="." method="_on_level_3_pressed"]
-[connection signal="pressed" from="LevelSelect/VBoxContainer/Level4" to="." method="_on_level_4_pressed"]
-[connection signal="pressed" from="LevelSelect/VBoxContainer/Level5" to="." method="_on_level_5_pressed"]
-[connection signal="pressed" from="LevelSelect/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=914893388]
+stream = ExtResource("21_10jtx")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/World1" to="." method="_on_world_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/World1" to="." method="_on_world_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/World2" to="." method="_on_world_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/World3" to="." method="_on_world_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Level5" to="." method="_on_level_5_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Back" to="." method="_on_back_pressed"]
