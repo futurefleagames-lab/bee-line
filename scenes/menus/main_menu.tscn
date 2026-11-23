@@ -49,16 +49,19 @@ unique_name_in_owner = true
 layout_mode = 2
 texture_normal = ExtResource("2_imvie")
 texture_hover = ExtResource("3_euy4r")
+texture_focused = ExtResource("3_euy4r")
 
 [node name="optionsbutton" type="TextureButton" parent="VBoxContainer" unique_id=1894215608]
 layout_mode = 2
 texture_normal = ExtResource("3_8r73w")
 texture_hover = ExtResource("5_bre17")
+texture_focused = ExtResource("5_bre17")
 
 [node name="quitbutton" type="TextureButton" parent="VBoxContainer" unique_id=672423133]
 layout_mode = 2
 texture_normal = ExtResource("4_1hnlc")
 texture_hover = ExtResource("7_88kup")
+texture_focused = ExtResource("7_88kup")
 
 [node name="HeadRect" type="TextureRect" parent="." unique_id=1766744500]
 layout_mode = 1

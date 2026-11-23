@@ -60,21 +60,25 @@ theme_override_constants/separation = 18
 layout_mode = 2
 texture_normal = ExtResource("2_1g16o")
 texture_hover = ExtResource("3_25yo6")
+texture_focused = ExtResource("3_25yo6")
 
 [node name="World2" type="TextureButton" parent="VBoxContainer" unique_id=1480092538]
 layout_mode = 2
 texture_normal = ExtResource("4_3nlwe")
 texture_hover = ExtResource("5_if2tv")
+texture_focused = ExtResource("5_if2tv")
 
 [node name="World3" type="TextureButton" parent="VBoxContainer" unique_id=487168515]
 layout_mode = 2
 texture_normal = ExtResource("6_10jtx")
 texture_hover = ExtResource("7_2uik4")
+texture_focused = ExtResource("7_2uik4")
 
 [node name="MainMenu" type="TextureButton" parent="VBoxContainer" unique_id=2053285754]
 layout_mode = 2
 texture_normal = ExtResource("8_pi4ua")
 texture_hover = ExtResource("9_2kfc6")
+texture_focused = ExtResource("9_2kfc6")
 
 [node name="LevelSelect" type="CenterContainer" parent="." unique_id=722154878]
 visible = false
@@ -105,31 +109,37 @@ scale = Vector2(2, 2)
 layout_mode = 2
 texture_normal = ExtResource("10_glcn7")
 texture_hover = ExtResource("11_0ds72")
+texture_focused = ExtResource("11_0ds72")
 
 [node name="Level2" type="TextureButton" parent="VBoxContainer2" unique_id=1711709258]
 layout_mode = 2
 texture_normal = ExtResource("12_wgcbf")
 texture_hover = ExtResource("13_q6lfc")
+texture_focused = ExtResource("13_q6lfc")
 
 [node name="Level3" type="TextureButton" parent="VBoxContainer2" unique_id=1839016439]
 layout_mode = 2
 texture_normal = ExtResource("14_70l6n")
 texture_hover = ExtResource("15_ilwhj")
+texture_focused = ExtResource("15_ilwhj")
 
 [node name="Level4" type="TextureButton" parent="VBoxContainer2" unique_id=567122333]
 layout_mode = 2
 texture_normal = ExtResource("16_ase7r")
 texture_hover = ExtResource("17_vtltp")
+texture_focused = ExtResource("17_vtltp")
 
 [node name="Level5" type="TextureButton" parent="VBoxContainer2" unique_id=1974409331]
 layout_mode = 2
 texture_normal = ExtResource("18_8u4nx")
 texture_hover = ExtResource("19_pumrs")
+texture_focused = ExtResource("19_pumrs")
 
 [node name="Back" type="TextureButton" parent="VBoxContainer2" unique_id=1185842342]
 layout_mode = 2
 texture_normal = ExtResource("8_pi4ua")
 texture_hover = ExtResource("9_2kfc6")
+texture_focused = ExtResource("9_2kfc6")
 
 [node name="bg" type="TextureRect" parent="." unique_id=148452146]
 z_index = -1
@@ -146,8 +156,8 @@ texture = ExtResource("20_if2tv")
 stream = ExtResource("21_10jtx")
 autoplay = true
 
-[connection signal="pressed" from="VBoxContainer/World1" to="." method="_on_world_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/World1" to="." method="_on_world_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/World1" to="." method="_on_world_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/World2" to="." method="_on_world_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/World3" to="." method="_on_world_3_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
