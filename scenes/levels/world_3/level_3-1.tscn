@@ -14,6 +14,9 @@ texture = ExtResource("2_5lq5t")
 sources/0 = SubResource("TileSetAtlasSource_5lq5t")
 
 [node name="LevelTemplate" unique_id=482096296 instance=ExtResource("1_43w3i")]
+gold_time = 6.5
+silver_time = 8.5
+bronze_time = 10.5
 
 [node name="EndGoal" parent="." index="0" unique_id=1306961053]
 position = Vector2(1045, -422)
@@ -29,3 +32,47 @@ z_index = -10
 scale = Vector2(20, 20)
 tile_map_data = PackedByteArray("AAD7/wEAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD6/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAD7/wIAAAAAAAAAAAD8/wAAAAAAAAAAAAD7/wAAAAAAAAAAAAD7////AAAAAAAAAAD6////AAAAAAAAAAD6/wAAAAAAAAAAAAD5/wAAAAAAAAAAAAD5/wEAAAAAAAAAAAD6/wMAAAAAAAAAAAD7/wMAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wUAAAAAAAAAAAD//wUAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAD7//3/AAAAAAAAAAD6//3/AAAAAAAAAAD6//7/AAAAAAAAAAD7//7/AAAAAAAAAAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD9//3/AAAAAAAAAAD9//z/AAAAAAAAAAD9//v/AAAAAAAAAAD8//v/AAAAAAAAAAD7//v/AAAAAAAAAAD6//v/AAAAAAAAAAD6//z/AAAAAAAAAAD8//3/AAAAAAAAAAD9//r/AAAAAAAAAAD8//r/AAAAAAAAAAD7//r/AAAAAAAAAAD7//z/AAAAAAAAAAD+//z/AAAAAAAAAAD///v/AAAAAAAAAAD///r/AAAAAAAAAAD///n/AAAAAAAAAAD+//n/AAAAAAAAAAD9//n/AAAAAAAAAAD8//n/AAAAAAAAAAD+//3/AAAAAAAAAAD+//v/AAAAAAAAAAD+//r/AAAAAAAAAAD7//n/AAAAAAAAAAD6//n/AAAAAAAAAAD6//r/AAAAAAAAAAD5//r/AAAAAAAAAAD5//v/AAAAAAAAAAD5//z/AAAAAAAAAAD8//z/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAABAPz/AAAAAAAAAAAAAPz/AAAAAAAAAAAAAPv/AAAAAAAAAAD///3/AAAAAAAAAAABAPv/AAAAAAAAAAD///z/AAAAAAAAAAABAPr/AAAAAAAAAAAAAPr/AAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAACAP7/AAAAAAAAAAAAAP//AAAAAAAAAAD/////AAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAP//AAAAAAAAAAADAP7/AAAAAAAAAAABAP7/AAAAAAAAAAAAAAIAAAAAAAAAAAACAAAAAAAAAAAAAAADAP//AAAAAAAAAAACAP3/AAAAAAAAAAADAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAAEAPz/AAAAAAAAAAAEAPv/AAAAAAAAAAADAPv/AAAAAAAAAAADAPz/AAAAAAAAAAACAPz/AAAAAAAAAAAFAP3/AAAAAAAAAAAEAP7/AAAAAAAAAAAFAP7/AAAAAAAAAAAGAP3/AAAAAAAAAAAGAPz/AAAAAAAAAAAFAPz/AAAAAAAAAAAFAPv/AAAAAAAAAAAGAP7/AAAAAAAAAAAFAP//AAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAHAAEAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAQAAAAAAAAAAAAHAAIAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAABAAMAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAYAAAAAAAAAAAABAAYAAAAAAAAAAAAAAAYAAAAAAAAAAAD//wYAAAAAAAAAAAD8/wUAAAAAAAAAAAD7/wUAAAAAAAAAAAD6/wUAAAAAAAAAAAD6/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD5//7/AAAAAAAAAAD5//3/AAAAAAAAAAD5////AAAAAAAAAAD5/wIAAAAAAAAAAAD5/wMAAAAAAAAAAAD5/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAACAPv/AAAAAAAAAAACAPr/AAAAAAAAAAACAPn/AAAAAAAAAAABAPn/AAAAAAAAAAAAAPn/AAAAAAAAAAADAPn/AAAAAAAAAAAEAPn/AAAAAAAAAAAFAPn/AAAAAAAAAAAGAPn/AAAAAAAAAAAHAPn/AAAAAAAAAAAIAPn/AAAAAAAAAAAJAPr/AAAAAAAAAAAJAPv/AAAAAAAAAAAKAPv/AAAAAAAAAAAKAPz/AAAAAAAAAAAKAP3/AAAAAAAAAAAKAP7/AAAAAAAAAAAJAP7/AAAAAAAAAAAJAP//AAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAAAAAAHAP3/AAAAAAAAAAAHAPz/AAAAAAAAAAAGAPv/AAAAAAAAAAAGAPr/AAAAAAAAAAAIAPz/AAAAAAAAAAAHAP7/AAAAAAAAAAAIAP3/AAAAAAAAAAAJAPz/AAAAAAAAAAAJAP3/AAAAAAAAAAAIAPv/AAAAAAAAAAAIAPr/AAAAAAAAAAAHAPr/AAAAAAAAAAAHAPv/AAAAAAAAAAAFAPr/AAAAAAAAAAAEAPr/AAAAAAAAAAADAPr/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_d0a87")
+
+[connection signal="body_entered" from="SpikeMap/Spike" to="SpikeMap/Spike" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44972" to="SpikeMap/@Area2D@44972" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44973" to="SpikeMap/@Area2D@44973" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44974" to="SpikeMap/@Area2D@44974" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44975" to="SpikeMap/@Area2D@44975" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44976" to="SpikeMap/@Area2D@44976" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44977" to="SpikeMap/@Area2D@44977" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44978" to="SpikeMap/@Area2D@44978" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44979" to="SpikeMap/@Area2D@44979" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44980" to="SpikeMap/@Area2D@44980" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44981" to="SpikeMap/@Area2D@44981" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44982" to="SpikeMap/@Area2D@44982" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44983" to="SpikeMap/@Area2D@44983" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44984" to="SpikeMap/@Area2D@44984" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44985" to="SpikeMap/@Area2D@44985" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44986" to="SpikeMap/@Area2D@44986" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44987" to="SpikeMap/@Area2D@44987" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44988" to="SpikeMap/@Area2D@44988" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44989" to="SpikeMap/@Area2D@44989" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44990" to="SpikeMap/@Area2D@44990" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44991" to="SpikeMap/@Area2D@44991" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44992" to="SpikeMap/@Area2D@44992" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44993" to="SpikeMap/@Area2D@44993" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44994" to="SpikeMap/@Area2D@44994" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44995" to="SpikeMap/@Area2D@44995" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44996" to="SpikeMap/@Area2D@44996" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44997" to="SpikeMap/@Area2D@44997" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44998" to="SpikeMap/@Area2D@44998" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@44999" to="SpikeMap/@Area2D@44999" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45000" to="SpikeMap/@Area2D@45000" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45001" to="SpikeMap/@Area2D@45001" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45002" to="SpikeMap/@Area2D@45002" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45003" to="SpikeMap/@Area2D@45003" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45004" to="SpikeMap/@Area2D@45004" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45005" to="SpikeMap/@Area2D@45005" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45006" to="SpikeMap/@Area2D@45006" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45007" to="SpikeMap/@Area2D@45007" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45008" to="SpikeMap/@Area2D@45008" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45009" to="SpikeMap/@Area2D@45009" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45010" to="SpikeMap/@Area2D@45010" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45011" to="SpikeMap/@Area2D@45011" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45012" to="SpikeMap/@Area2D@45012" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikeMap/@Area2D@45013" to="SpikeMap/@Area2D@45013" method="_on_body_entered"]
