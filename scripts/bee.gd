@@ -42,10 +42,11 @@ func reset():
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 
-func _physics_process(delta: float) -> void:
-	
+func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("reset"):
 		reset()
+
+func _physics_process(delta: float) -> void:
 	
 	if state == "dying": 
 		if $AnimatedSprite2D.frame == 2 && $AnimatedSprite2D.frame_progress > 0.80:
@@ -121,19 +122,21 @@ func _physics_process(delta: float) -> void:
 				$AnimatedSprite2D.set_flip_h(1)
 			elif wish_vector.x < 0:
 				$AnimatedSprite2D.set_flip_h(0)
-		var collision = move_and_collide(velocity * delta)
-		
-		if collision:
-			wall_normal = collision.get_normal()
-			stun_timer = 0.0
-			if  state != "wall":
-				$cling.play()
-				$AnimatedSprite2D.play("cling")
-				$AnimatedSprite2D.rotation = (wall_normal.angle() + PI/2)
-				$AnimatedSprite2D.offset = Vector2(0,2)
-				if stored_velocity.x > 0 && wall_normal.y > 0:
-					$AnimatedSprite2D.set_flip_h(0)
-				elif stored_velocity.x < 0 && wall_normal.y > 0:
-					$AnimatedSprite2D.set_flip_h(1)
-				state = "wall"
-				wall_timer = WALL_TIMER_MAX
+		if Input.is_action_pressed("slide"):
+			move_and_slide()
+		else:
+			var collision = move_and_collide(velocity * delta)
+			if collision:
+				wall_normal = collision.get_normal()
+				stun_timer = 0.0
+				if  state != "wall":
+					$cling.play()
+					$AnimatedSprite2D.play("cling")
+					$AnimatedSprite2D.rotation = (wall_normal.angle() + PI/2)
+					$AnimatedSprite2D.offset = Vector2(0,2)
+					if stored_velocity.x > 0 && wall_normal.y > 0:
+						$AnimatedSprite2D.set_flip_h(0)
+					elif stored_velocity.x < 0 && wall_normal.y > 0:
+						$AnimatedSprite2D.set_flip_h(1)
+					state = "wall"
+					wall_timer = WALL_TIMER_MAX
