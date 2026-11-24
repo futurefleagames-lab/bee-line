@@ -19,6 +19,7 @@ var timer_paused: bool = false
 var duration: int = 3
 
 @onready var timer_label: Label = $LevelHud/timerlabel
+@onready var medal_label: Label = $LevelHud/medallabel
 @onready var complete = $LevelComplete
 
 @onready var fade: Control = $LevelHud/Fade
@@ -32,6 +33,15 @@ func _process(delta: float) -> void:
 	if not level_finished and not timer_paused:
 		elapsed_time += delta
 	timer_label.text = "%.2f" % elapsed_time
+	if (level_id.left(1)).is_valid_int():
+		if elapsed_time < SaveSystem.temporary_keys.get(level_id + " best time") and SaveSystem.temporary_keys.get(level_id + " best time") != -1.0:
+			medal_label.text = "Best time: " + "%.2f" % SaveSystem.temporary_keys.get(level_id + " best time")
+		elif elapsed_time < gold_time:
+			medal_label.text = "Gold time: " + "%.2f" % gold_time
+		elif elapsed_time < silver_time:
+			medal_label.text = "Silver time: " + "%.2f" % silver_time
+		else:
+			medal_label.text = "Bronze time: " + "%.2f" % bronze_time
 
 #for time penalty boxes
 func add_penalty(amount: float) -> void:
@@ -91,6 +101,11 @@ func _ready() -> void:
 	timer_paused = true
 	get_tree().paused = true
 	fade.show()
+	if (level_id.left(1)).is_valid_int():
+		if SaveSystem.temporary_keys.get(level_id + " medal") == "Gold":
+			medal_label.text = "Best time: " + "%.2f" % SaveSystem.temporary_keys.get(level_id + " best time")
+		else:
+			medal_label.text = "Gold time: " + "%.2f" % gold_time
 	fade_animation.play("fade_in")
 	await fade_animation.animation_finished
 	fade.hide()
