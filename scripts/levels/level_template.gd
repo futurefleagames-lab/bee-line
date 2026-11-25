@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 		elapsed_time += delta
 	timer_label.text = "%.2f" % elapsed_time
 	if (level_id.left(1)).is_valid_int():
-		if elapsed_time < SaveSystem.temporary_keys.get(level_id + " best time") and SaveSystem.temporary_keys.get(level_id + " best time") != -1.0:
+		if elapsed_time < SaveSystem.temporary_keys.get(level_id + " best time") and SaveSystem.temporary_keys.get(level_id + " best time") != -1.0 and SaveSystem.temporary_keys.get(level_id + " medal") == "Gold":
 			medal_label.text = "Best time: " + "%.2f" % SaveSystem.temporary_keys.get(level_id + " best time")
 		elif elapsed_time < gold_time:
 			medal_label.text = "Gold time: " + "%.2f" % gold_time
