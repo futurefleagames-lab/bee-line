@@ -44,7 +44,8 @@ var temporary_keys: Dictionary = {
 	
 	#video settings
 	"display mode": "windowed",
-	"frame rate": 60
+	"frame rate": 60,
+	"vsync": true
 }
 
 func save_file():
@@ -98,10 +99,25 @@ func load_file():
 		
 		temporary_keys.set("display mode", save_data.get("display mode"))
 		temporary_keys.set("frame rate", save_data.get("frame rate"))
+		temporary_keys.set("vsync", save_data.get("vsync", true))
+
+func apply_video_settings():
+	if temporary_keys["display mode"] == "fullscreen":
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		
+	Engine.max_fps = int(temporary_keys["frame rate"])
+	
+	if temporary_keys["vsync"]:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_file()
+	apply_video_settings()
 	save_file()
 
 

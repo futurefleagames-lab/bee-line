@@ -2,6 +2,7 @@ extends Control
 
 func _ready() -> void:
 	%Quit.grab_focus()
+	load_video_settings()
 
 #this script ought to handle most, if not everything in the options menu
 
@@ -79,8 +80,22 @@ func _on_resetbutton_pressed():
 
 
 #VIDEO
+func _on_display_mode_item_selected(index: int) -> void:
+	if index == 0:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		SaveSystem.temporary_keys["display mode"] = "windowed"
+	elif index ==1:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		SaveSystem.temporary_keys["display mode"] = "fullscreen"
+		
+	SaveSystem.save_file()
+	
 
-
+func update_vsync_color():
+	if %VSync.button_pressed:
+		%VSync.self_modulate = Color.LAWN_GREEN
+	else:
+		%VSync.self_modulate = Color.WHITE
 
 #AUDIO
 
@@ -89,4 +104,53 @@ func _on_resetbutton_pressed():
 #return player to start scene
 func _on_quit_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+	
+
+
+#func _on_display_mode_item_selected(index: int) -> void:
+	#pass # Replace with function body.
+
+const FPS_OPTIONS = [30, 60, 120, 144, 0]
+func _on_frame_rate_item_selected(index: int) -> void:
+	Engine.max_fps = FPS_OPTIONS[index]
+	SaveSystem.temporary_keys["frame rate"] = FPS_OPTIONS[index]
+	SaveSystem.save_file()
+	
+func load_video_settings():
+	var mode = SaveSystem.temporary_keys["display mode"]
+	var fps = SaveSystem.temporary_keys["frame rate"]
+	
+	if mode == "fullscreen":
+		%DisplayMode.select(1)
+	else:
+		%DisplayMode.select(0)
+		
+	var fps_index = FPS_OPTIONS.find(fps)
+	
+	if fps_index != -1:
+		%FrameRate.select(fps_index)
+	else:
+		%FrameRate.select(1)
+		
+	%VSync.set_pressed_no_signal(SaveSystem.temporary_keys["vsync"])
+	update_vsync_color()
+	
+	
+
+
+func _on_v_sync_toggled(toggled_on: bool) -> void:
+	SaveSystem.temporary_keys["vsync"] = toggled_on
+	
+	if toggled_on:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	else:
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		
+	SaveSystem.save_file()
+	
+	update_vsync_color()
+
+
+	
+
 	
