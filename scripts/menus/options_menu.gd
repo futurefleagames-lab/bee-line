@@ -3,6 +3,7 @@ extends Control
 func _ready() -> void:
 	%Quit.grab_focus()
 	load_video_settings()
+	load_audio_settings()
 
 #this script ought to handle most, if not everything in the options menu
 
@@ -98,6 +99,28 @@ func update_vsync_color():
 		%VSync.self_modulate = Color.WHITE
 
 #AUDIO
+func change_volume(bus_name: String, value: float):
+	var bus_index = AudioServer.get_bus_index(bus_name)
+	
+	if bus_index == -1:
+		return
+	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value / 100.0))
+	AudioServer.set_bus_mute(bus_index, value == 0)
+	
+func load_audio_settings():
+	%MasterVolume.set_value_no_signal(
+		SaveSystem.temporary_keys["master volume"]
+	)
+	%MusicVolume.set_value_no_signal(
+		SaveSystem.temporary_keys["music volume"]
+	)
+	%SFXVolume.set_value_no_signal(
+		SaveSystem.temporary_keys["sfx volume"]
+	)
+	# test case
+	#print("master: ", SaveSystem.temporary_keys["master volume"])
+	#print("music: ", SaveSystem.temporary_keys["music volume"])
+	#print("SFX: ", SaveSystem.temporary_keys["sfx volume"])
 
 
 
@@ -154,3 +177,20 @@ func _on_v_sync_toggled(toggled_on: bool) -> void:
 	
 
 	
+
+
+func _on_master_volume_value_changed(value: float) -> void:
+	change_volume("Master", value)
+	SaveSystem.temporary_keys["master volume"] = value
+	SaveSystem.save_file()
+	
+	
+func _on_music_volume_value_changed(value: float) -> void:
+	change_volume("Music", value)
+	SaveSystem.temporary_keys["music volume"] = value
+	SaveSystem.save_file()
+	
+func _on_sfx_volume_value_changed(value: float) -> void:
+	change_volume("SFX", value)
+	SaveSystem.temporary_keys["sfx volume"] = value
+	SaveSystem.save_file()

@@ -228,6 +228,60 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_60mby")
 
+[node name="MasterVolumeLabel" type="Label" parent="." unique_id=1748481921]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 249.0
+offset_right = 400.0
+offset_bottom = 272.0
+text = "Master Volume"
+
+[node name="MasterVolume" type="HSlider" parent="MasterVolumeLabel" unique_id=1143445473]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 24)
+layout_mode = 0
+offset_left = -30.0
+offset_top = 23.0
+offset_right = 150.0
+offset_bottom = 47.0
+value = 100.0
+
+[node name="SFXVolumeLabel" type="Label" parent="." unique_id=1738255421]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 195.0
+offset_right = 372.0
+offset_bottom = 218.0
+text = "SFX Volume"
+
+[node name="SFXVolume" type="HSlider" parent="SFXVolumeLabel" unique_id=1907470299]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 0
+offset_left = -27.0
+offset_top = 28.0
+offset_right = 153.0
+offset_bottom = 44.0
+value = 100.0
+
+[node name="MusicVolumeLabel" type="Label" parent="." unique_id=2082462262]
+layout_mode = 0
+offset_left = 278.0
+offset_top = 135.0
+offset_right = 385.0
+offset_bottom = 158.0
+text = "Music volume"
+
+[node name="MusicVolume" type="HSlider" parent="MusicVolumeLabel" unique_id=748500591]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 24)
+layout_mode = 0
+offset_left = -27.0
+offset_top = 33.0
+offset_right = 153.0
+offset_bottom = 57.0
+value = 100.0
+
 [connection signal="pressed" from="upbutton" to="." method="_on_upbutton_pressed"]
 [connection signal="pressed" from="downbutton" to="." method="_on_downbutton_pressed"]
 [connection signal="pressed" from="rightbutton" to="." method="_on_rightbutton_pressed"]
@@ -238,3 +292,6 @@ texture = ExtResource("2_60mby")
 [connection signal="item_selected" from="DisplayModeLabel/DisplayMode" to="." method="_on_display_mode_item_selected"]
 [connection signal="item_selected" from="FrameRateLabel/FrameRate" to="." method="_on_frame_rate_item_selected"]
 [connection signal="toggled" from="VSyncLabel/VSync" to="." method="_on_v_sync_toggled"]
+[connection signal="value_changed" from="MasterVolumeLabel/MasterVolume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="SFXVolumeLabel/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="value_changed" from="MusicVolumeLabel/MusicVolume" to="." method="_on_music_volume_value_changed"]
