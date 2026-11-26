@@ -29,7 +29,6 @@ func die():
 	$AnimatedSprite2D.rotation = 0
 	$AnimatedSprite2D.offset = Vector2()
 	state = "dying"
-	#get_tree().reload_current_scene()
 
 func reset():
 	get_tree().paused = true
@@ -60,16 +59,17 @@ func _physics_process(delta: float) -> void:
 		
 		if state == "flying":
 			if Input.is_action_just_pressed("dash"):
-				if wish_vector.x != 0 && wish_vector.y != 0:
+				if wish_vector.x != 0 or wish_vector.y != 0:
 					$dash.play()
 					dash_timer = 0.25
 					state = "dashing"
 			else:
-				#print(velocity.length())
 				if velocity.length() < SOFT_SPEED_CAP:
 					velocity = velocity + wish_vector * FORCE - velocity * AIR_FRICTION
-				else: 
+				elif abs(wish_vector.x) > 0.1 or abs(wish_vector.y) > 0.1: 
 					velocity = velocity + (Vector2(velocity.length(),0).rotated(wish_vector.angle()) - velocity) * delta * SOFT_CAP_TURN - Vector2(delta * SOFT_CAP_BREAK, 0).rotated(velocity.angle())
+				else:
+					velocity = velocity * 0.95
 				stored_velocity = velocity
 		
 		elif state == "dashing":
@@ -88,23 +88,25 @@ func _physics_process(delta: float) -> void:
 		
 		elif state == "wall":
 			if Input.is_action_just_pressed("dash"):
+				if (wish_vector.x == 0 and wish_vector.y == 0) or wish_vector.dot(wall_normal) < -0.01:
+					wish_vector = wall_normal
 				if wall_timer > WALL_TIMER_MAX - 0.1:
 					$perfect.play()
-					velocity = Vector2((stored_velocity.length() + MAX_WALL_BOOST),0).rotated(wish_vector.angle()) 
+					velocity = Vector2((stored_velocity.length() + MAX_WALL_BOOST),0).rotated(wish_vector.angle())  + wall_normal * 300
 					print("perfect")
 				elif wall_timer > WALL_TIMER_MAX - 0.25:
 					$mid.play()
-					velocity = Vector2(1,0).rotated(wish_vector.angle()) * (stored_velocity.length() + MAX_WALL_BOOST * 0.5)
+					velocity = Vector2(1,0).rotated(wish_vector.angle()) * (stored_velocity.length() + MAX_WALL_BOOST * 0.5) + wall_normal * 300
 					print("medium")
 				else:
 					$late.play()
-					velocity = Vector2(1,0).rotated(wish_vector.angle()) * (stored_velocity.length() + MAX_WALL_BOOST * 0.25)
+					velocity = Vector2(1,0).rotated(wish_vector.angle()) * (stored_velocity.length() + MAX_WALL_BOOST * 0.25) + wall_normal * 300
 					print("late")
 				state = "flying"
 				$AnimatedSprite2D.rotation = 0
 				$AnimatedSprite2D.play("flight")
 				$AnimatedSprite2D.offset = Vector2()
-			elif wall_timer <= 0:
+			elif wall_timer <= 0 or Input.is_action_just_pressed("slide"):
 				velocity = wall_normal * 500
 				state = "flying"
 				$AnimatedSprite2D.rotation = 0
@@ -122,7 +124,7 @@ func _physics_process(delta: float) -> void:
 				$AnimatedSprite2D.set_flip_h(1)
 			elif wish_vector.x < 0:
 				$AnimatedSprite2D.set_flip_h(0)
-		if Input.is_action_pressed("slide"):
+		if Input.is_action_pressed("slide") and state != "wall":
 			move_and_slide()
 		else:
 			var collision = move_and_collide(velocity * delta)
@@ -134,6 +136,7 @@ func _physics_process(delta: float) -> void:
 					$AnimatedSprite2D.play("cling")
 					$AnimatedSprite2D.rotation = (wall_normal.angle() + PI/2)
 					$AnimatedSprite2D.offset = Vector2(0,2)
+					velocity = Vector2()
 					if stored_velocity.x > 0 && wall_normal.y > 0:
 						$AnimatedSprite2D.set_flip_h(0)
 					elif stored_velocity.x < 0 && wall_normal.y > 0:
