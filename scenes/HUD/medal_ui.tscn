@@ -152,6 +152,7 @@ animations = [{
 }]
 
 [node name="MedalUI" type="CanvasLayer" unique_id=2142517192]
+layer = 2
 script = ExtResource("1_geaxa")
 
 [node name="MedalAnimation" type="AnimationPlayer" parent="." unique_id=1786008786]
@@ -161,4 +162,4 @@ libraries/ = SubResource("AnimationLibrary_ey6ro")
 texture_filter = 1
 position = Vector2(52, 56)
 sprite_frames = SubResource("SpriteFrames_1jffj")
-animation = &"silver"
+animation = &"bronze"
