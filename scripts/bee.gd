@@ -42,6 +42,14 @@ func reset():
 	get_tree().reload_current_scene()
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("escape"):
+		get_tree().paused = true
+		fade.show()
+		fade_animation.play("fade_out")
+		await fade_animation.animation_finished
+		fade.hide()
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://scenes/menus/level_select.tscn")
 	if Input.is_action_just_pressed("reset"):
 		reset()
 
