@@ -107,6 +107,7 @@ autostart = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=492472315]
 stream = ExtResource("13_bh4e2")
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/optionsbutton" to="." method="_on_optionsbutton_pressed"]

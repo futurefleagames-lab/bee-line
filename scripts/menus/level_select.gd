@@ -7,13 +7,14 @@ extends Control
 
 @onready var world_select = $VBoxContainer
 @onready var level_select = $VBoxContainer2
-
+@onready var winners_lounge: TextureButton = $VBoxContainer/WinnersLounge
 
 var selected: int = 1
 
 func _ready() -> void:
 	world_select.show()
 	level_select.hide()
+	winners_lounge.visible = SaveSystem.all_medaled()
 	$VBoxContainer/World1.grab_focus()
 
 func select_world(world: int) -> void:
@@ -64,3 +65,7 @@ func _on_back_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
+
+
+func _on_winners_lounge_pressed() -> void:
+	LevelManager.load_lounge()

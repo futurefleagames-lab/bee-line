@@ -15,6 +15,10 @@ extends CanvasLayer
 
 @onready var fade: Control = $"../LevelHud/Fade"
 @onready var fade_animation: AnimationPlayer = $"../LevelHud/Fade/AnimationPlayer"
+@onready var next_button: Button = $Control/PanelContainer/VBoxContainer/next
+
+var lounge: bool = false
+
 
 var medal_ui: CanvasLayer
 
@@ -38,7 +42,15 @@ func _ready() -> void:
 	medal_ui = instance as CanvasLayer
 	add_child(medal_ui)
 
-func results(completion: float, medal: String) -> void:
+func results(completion: float, medal: String, lounge_unlocked: bool = false) -> void:
+	
+	lounge = lounge_unlocked
+	
+	if lounge:
+		next_button.text = "Winner's Lounge"
+	else:
+		next_button.text = "Next Level"
+	
 	time_label.text = "Time: %.2f" % completion
 
 	var earned := medal.strip_edges().to_lower()
@@ -79,7 +91,11 @@ func _on_next_pressed() -> void:
 	fade_animation.play("fade_out")
 	await fade_animation.animation_finished
 	fade.hide()
-	LevelManager.next()
+	
+	if lounge:
+		LevelManager.load_lounge()
+	else:
+		LevelManager.next()
 
 
 func _on_exit_pressed() -> void:

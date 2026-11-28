@@ -42,3 +42,7 @@ func load_level(world: int, level: int) -> void:
 		
 	get_tree().paused = false
 	get_tree().change_scene_to_file(LEVELS[index])
+	
+func load_lounge() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/levels/winners_lounge.tscn")

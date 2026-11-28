@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://cf7rtsgdesq1d" path="res://assets/back.png" id="8_pi4ua"]
 [ext_resource type="Texture2D" uid="uid://b6ie8ow3f4q80" path="res://assets/back-hover.png" id="9_2kfc6"]
 [ext_resource type="Texture2D" uid="uid://ba10wehkebrsd" path="res://assets/level1.png" id="10_glcn7"]
+[ext_resource type="Texture2D" uid="uid://dprg834l2vw64" path="res://assets/winner.png" id="10_pi4ua"]
 [ext_resource type="Texture2D" uid="uid://c2johu0y7u3yi" path="res://assets/level1-hover.png" id="11_0ds72"]
+[ext_resource type="Texture2D" uid="uid://di5cdpox58mu2" path="res://assets/winner-hover.png" id="11_2kfc6"]
 [ext_resource type="Texture2D" uid="uid://bysy3vs6q0yhh" path="res://assets/level2.png" id="12_wgcbf"]
 [ext_resource type="Texture2D" uid="uid://crgfsk4ycd860" path="res://assets/level2-hover.png" id="13_q6lfc"]
 [ext_resource type="Texture2D" uid="uid://c72d55k07t86r" path="res://assets/level3.png" id="14_70l6n"]
@@ -79,6 +81,11 @@ layout_mode = 2
 texture_normal = ExtResource("8_pi4ua")
 texture_hover = ExtResource("9_2kfc6")
 texture_focused = ExtResource("9_2kfc6")
+
+[node name="WinnersLounge" type="TextureButton" parent="VBoxContainer" unique_id=1889113937]
+layout_mode = 2
+texture_normal = ExtResource("10_pi4ua")
+texture_hover = ExtResource("11_2kfc6")
 
 [node name="LevelSelect" type="CenterContainer" parent="." unique_id=722154878]
 visible = false
@@ -155,12 +162,14 @@ texture = ExtResource("20_if2tv")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=914893388]
 stream = ExtResource("21_10jtx")
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="VBoxContainer/World1" to="." method="_on_world_4_pressed"]
 [connection signal="pressed" from="VBoxContainer/World1" to="." method="_on_world_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/World2" to="." method="_on_world_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/World3" to="." method="_on_world_3_pressed"]
 [connection signal="pressed" from="VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/WinnersLounge" to="." method="_on_winners_lounge_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Level3" to="." method="_on_level_3_pressed"]

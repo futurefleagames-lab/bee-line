@@ -1,6 +1,7 @@
 extends Control
 
 
+
 func _ready() -> void:
 	%play.grab_focus()
 

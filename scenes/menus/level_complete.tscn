@@ -36,11 +36,15 @@ layout_mode = 2
 
 [node name="complete" type="Label" parent="Control/PanelContainer/VBoxContainer" unique_id=1958655803]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Level Complete"
 horizontal_alignment = 1
 
 [node name="time" type="Label" parent="Control/PanelContainer/VBoxContainer" unique_id=1682465459]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Time: 00:00"
 horizontal_alignment = 1
 
@@ -55,6 +59,8 @@ layout_mode = 2
 
 [node name="medal" type="Label" parent="Control/PanelContainer/VBoxContainer" unique_id=46370682]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Gold Medal"
 horizontal_alignment = 1
 
@@ -63,14 +69,20 @@ layout_mode = 2
 
 [node name="restart" type="Button" parent="Control/PanelContainer/VBoxContainer" unique_id=1809519163]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Restart Level"
 
 [node name="next" type="Button" parent="Control/PanelContainer/VBoxContainer" unique_id=566852840]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Next Level"
 
 [node name="exit" type="Button" parent="Control/PanelContainer/VBoxContainer" unique_id=1622323144]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Exit"
 
 [connection signal="pressed" from="Control/PanelContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]

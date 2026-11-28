@@ -89,18 +89,24 @@ position_smoothing_enabled = true
 
 [node name="death" type="AudioStreamPlayer2D" parent="." unique_id=147913187]
 stream = ExtResource("4_yiyqc")
+bus = &"SFX"
 
 [node name="dash" type="AudioStreamPlayer2D" parent="." unique_id=1907115958]
 stream = ExtResource("5_ykkpv")
+bus = &"SFX"
 
 [node name="perfect" type="AudioStreamPlayer2D" parent="." unique_id=559999523]
 stream = ExtResource("6_011rt")
+bus = &"SFX"
 
 [node name="mid" type="AudioStreamPlayer2D" parent="." unique_id=430508365]
 stream = ExtResource("7_ovfpg")
+bus = &"SFX"
 
 [node name="late" type="AudioStreamPlayer2D" parent="." unique_id=928358994]
 stream = ExtResource("8_28ix7")
+bus = &"SFX"
 
 [node name="cling" type="AudioStreamPlayer2D" parent="." unique_id=2095046520]
 stream = ExtResource("9_vq5cx")
+bus = &"SFX"

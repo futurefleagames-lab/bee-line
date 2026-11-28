@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1ntnnfmekqmp" path="res://scripts/menus/options_menu.gd" id="1_6r3ve"]
 [ext_resource type="Texture2D" uid="uid://dtxjau47kyelr" path="res://assets/honeycomb-darker.png" id="2_60mby"]
+[ext_resource type="AudioStream" uid="uid://dj6rwvlphh6o0" path="res://assets/menu_theme.wav" id="3_ohqpn"]
 
 [node name="OptionsMenu" type="Control" unique_id=1566570124]
 layout_mode = 3
@@ -26,6 +27,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1120975202]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 30
 text = "Sound                    Video                    Control"
 
@@ -36,6 +39,8 @@ offset_left = 938.0
 offset_top = 175.0
 offset_right = 979.0
 offset_bottom = 211.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 20
 text = "W"
 
@@ -45,6 +50,8 @@ offset_left = 782.0
 offset_top = 175.0
 offset_right = 887.0
 offset_bottom = 207.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 23
 text = "Move Up:"
 
@@ -54,6 +61,8 @@ offset_left = 782.0
 offset_top = 239.0
 offset_right = 920.0
 offset_bottom = 271.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 23
 text = "Move Down:"
 
@@ -63,6 +72,8 @@ offset_left = 782.0
 offset_top = 302.0
 offset_right = 919.0
 offset_bottom = 334.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 23
 text = "Move Right: "
 
@@ -72,6 +83,8 @@ offset_left = 782.0
 offset_top = 365.0
 offset_right = 892.0
 offset_bottom = 397.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 23
 text = "Move left:"
 
@@ -82,6 +95,8 @@ offset_left = 938.0
 offset_top = 238.0
 offset_right = 979.0
 offset_bottom = 274.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 20
 text = "S"
 
@@ -92,6 +107,8 @@ offset_left = 938.0
 offset_top = 302.0
 offset_right = 979.0
 offset_bottom = 338.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 20
 text = "D"
 
@@ -102,6 +119,8 @@ offset_left = 938.0
 offset_top = 365.0
 offset_right = 979.0
 offset_bottom = 401.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 20
 text = "A"
 
@@ -112,6 +131,8 @@ offset_left = 549.0
 offset_top = 550.0
 offset_right = 622.0
 offset_bottom = 597.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 28
 text = "Back"
 
@@ -121,6 +142,8 @@ offset_left = 782.0
 offset_top = 429.0
 offset_right = 845.0
 offset_bottom = 461.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 23
 text = "Dash:"
 
@@ -130,6 +153,8 @@ offset_left = 782.0
 offset_top = 493.0
 offset_right = 855.0
 offset_bottom = 525.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 23
 text = "Reset:"
 
@@ -140,6 +165,8 @@ offset_left = 885.0
 offset_top = 429.0
 offset_right = 983.0
 offset_bottom = 465.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 20
 text = "Spacebar"
 
@@ -150,15 +177,19 @@ offset_left = 938.0
 offset_top = 493.0
 offset_right = 979.0
 offset_bottom = 529.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 20
 text = "R"
 
 [node name="DisplayModeLabel" type="Label" parent="." unique_id=756043073]
 layout_mode = 0
 offset_left = 529.0
-offset_top = 135.0
+offset_top = 143.0
 offset_right = 638.0
-offset_bottom = 158.0
+offset_bottom = 166.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Display Mode:"
 
 [node name="DisplayMode" type="OptionButton" parent="DisplayModeLabel" unique_id=384367134]
@@ -168,6 +199,8 @@ offset_left = -11.0
 offset_top = 37.0
 offset_right = 111.0
 offset_bottom = 68.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 item_count = 2
 popup/item_0/text = "Windowed"
 popup/item_0/id = 0
@@ -177,9 +210,11 @@ popup/item_1/id = 1
 [node name="FrameRateLabel" type="Label" parent="." unique_id=1508118316]
 layout_mode = 0
 offset_left = 536.0
-offset_top = 216.0
+offset_top = 232.0
 offset_right = 629.0
-offset_bottom = 239.0
+offset_bottom = 255.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Frame Rate:"
 
 [node name="FrameRate" type="OptionButton" parent="FrameRateLabel" unique_id=236729848]
@@ -189,6 +224,8 @@ offset_left = -13.0
 offset_top = 33.0
 offset_right = 104.0
 offset_bottom = 64.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 item_count = 5
 popup/item_0/text = "30 FPS"
 popup/item_0/id = 0
@@ -204,9 +241,11 @@ popup/item_4/id = 4
 [node name="VSyncLabel" type="Label" parent="." unique_id=1529519050]
 layout_mode = 0
 offset_left = 531.0
-offset_top = 307.0
+offset_top = 331.0
 offset_right = 581.0
-offset_bottom = 330.0
+offset_bottom = 354.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "VSync:"
 
 [node name="VSync" type="CheckButton" parent="VSyncLabel" unique_id=1375839887]
@@ -231,9 +270,11 @@ texture = ExtResource("2_60mby")
 [node name="MasterVolumeLabel" type="Label" parent="." unique_id=1748481921]
 layout_mode = 0
 offset_left = 282.0
-offset_top = 249.0
+offset_top = 273.0
 offset_right = 400.0
-offset_bottom = 272.0
+offset_bottom = 296.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Master Volume"
 
 [node name="MasterVolume" type="HSlider" parent="MasterVolumeLabel" unique_id=1143445473]
@@ -249,9 +290,11 @@ value = 100.0
 [node name="SFXVolumeLabel" type="Label" parent="." unique_id=1738255421]
 layout_mode = 0
 offset_left = 281.0
-offset_top = 195.0
+offset_top = 211.0
 offset_right = 372.0
-offset_bottom = 218.0
+offset_bottom = 234.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "SFX Volume"
 
 [node name="SFXVolume" type="HSlider" parent="SFXVolumeLabel" unique_id=1907470299]
@@ -267,9 +310,11 @@ value = 100.0
 [node name="MusicVolumeLabel" type="Label" parent="." unique_id=2082462262]
 layout_mode = 0
 offset_left = 278.0
-offset_top = 135.0
+offset_top = 143.0
 offset_right = 385.0
-offset_bottom = 158.0
+offset_bottom = 166.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
 text = "Music volume"
 
 [node name="MusicVolume" type="HSlider" parent="MusicVolumeLabel" unique_id=748500591]
@@ -281,6 +326,11 @@ offset_top = 33.0
 offset_right = 153.0
 offset_bottom = 57.0
 value = 100.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1034511657]
+stream = ExtResource("3_ohqpn")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="upbutton" to="." method="_on_upbutton_pressed"]
 [connection signal="pressed" from="downbutton" to="." method="_on_downbutton_pressed"]

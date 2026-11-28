@@ -80,6 +80,7 @@ func _on_resetbutton_pressed():
 
 
 
+
 #VIDEO
 func _on_display_mode_item_selected(index: int) -> void:
 	if index == 0:
@@ -97,6 +98,9 @@ func update_vsync_color():
 		%VSync.self_modulate = Color.LAWN_GREEN
 	else:
 		%VSync.self_modulate = Color.WHITE
+
+
+
 
 #AUDIO
 func change_volume(bus_name: String, value: float):

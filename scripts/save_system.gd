@@ -124,3 +124,26 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+	
+	
+	
+#some necessary winner's lounge functions below
+
+func get_medalcount(medal_type: String) -> int:
+	var count: int = 0
+	for world in range(1, 4):
+		for level in range(1, 6):
+			var key = "%d-%d medal" % [world, level]
+			
+			if temporary_keys.get(key) == medal_type:
+				count += 1
+	return count
+
+func all_medaled() -> bool:
+	return (get_medalcount("Bronze") + 
+	get_medalcount("Silver") + 
+	get_medalcount("Gold")) == 15
+	
+func all_gold() -> bool:
+	return (get_medalcount("Gold")) == 15

@@ -70,6 +70,9 @@ func finish_level():
 		return
 
 	level_finished = true
+	var had_all_medals: bool = SaveSystem.all_medaled()
+	var had_all_golds: bool = SaveSystem.all_gold()
+	
 	var medal_earned: String = "none"
 
 	if elapsed_time <= gold_time:
@@ -91,7 +94,12 @@ func finish_level():
 		if SaveSystem.temporary_keys.get(level_id + " best time") > elapsed_time or SaveSystem.temporary_keys.get(level_id + " best time") == -1.0:
 			SaveSystem.temporary_keys.set(level_id + " best time", elapsed_time)
 		SaveSystem.save_file()
-	complete.results(elapsed_time, medal_earned)
+	
+
+	var newly_completed: bool = SaveSystem.all_medaled() and not had_all_medals
+	var newly_all_gold: bool = SaveSystem.all_gold() and not had_all_golds
+	
+	complete.results(elapsed_time, medal_earned, newly_completed or newly_all_gold)
 	get_tree().paused = true
 
 func _ready() -> void:
